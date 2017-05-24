@@ -1,18 +1,21 @@
 package namori.love.code;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Graphics;
+import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.Color;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class FrameLayout extends JFrame {
 
@@ -20,6 +23,8 @@ public class FrameLayout extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private static final int FrameWidth = 920;
+	private static final int FrameHeight = 600;
 	private JPanel contentPane;
 
 	/**
@@ -43,38 +48,49 @@ public class FrameLayout extends JFrame {
 	 */
 	public FrameLayout() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 920, 600);
+		setBounds(100, 100, FrameWidth, FrameHeight);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
+		
+		
+		
+		
+		
 		JPanel CharicPan = new JPanel();
-		CharicPan.setBounds(215, 5, 474, 552);
-		//CharicPan.setBackground(new Color(255,0,0,0)); // 투명한 패널 만드는 방법: new Color(~)
-		CharicPan.setOpaque(true);
+		
+		SetChaImg sci = null;
+		try {
+			sci = new SetChaImg("kyoko.png");
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		int ChaH = sci.getImg().getHeight(null);
+		System.out.println(ChaH);
+		int ChaW = sci.getImg().getWidth(null);
+		System.out.println(ChaW);
+		sci.setBounds(0, 0, ChaH, ChaW);
+		
+		CharicPan.setBounds((FrameWidth-ChaW)/2, (FrameHeight-ChaH)/2, ChaW, ChaH);
+		CharicPan.setBackground(new Color(255,0,0,0)); // 투명한 패널 만드는 방법: new Color(~)
+		CharicPan.setOpaque(true);		
+		CharicPan.add(sci);
 		
 		JPanel TalkPan = new JPanel();
 		//TalkPan.setBackground(new Color(100,255,255,255));
 		TalkPan.setOpaque(true);
-		TalkPan.setBounds(66, 417, 783, 118);
-		
-		JPanel TempCha = new JPanel();
-		TempCha.setBackground(Color.GREEN);
+		TalkPan.setBounds(60, 417, 783, 118);
 		GroupLayout gl_CharicPan = new GroupLayout(CharicPan);
 		gl_CharicPan.setHorizontalGroup(
 			gl_CharicPan.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_CharicPan.createSequentialGroup()
-					.addGap(47)
-					.addComponent(TempCha, GroupLayout.PREFERRED_SIZE, 374, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(53, Short.MAX_VALUE))
+				.addGap(0, 474, Short.MAX_VALUE)
 		);
 		gl_CharicPan.setVerticalGroup(
-			gl_CharicPan.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_CharicPan.createSequentialGroup()
-					.addContainerGap(60, Short.MAX_VALUE)
-					.addComponent(TempCha, GroupLayout.PREFERRED_SIZE, 456, GroupLayout.PREFERRED_SIZE)
-					.addGap(36))
+			gl_CharicPan.createParallelGroup(Alignment.TRAILING)
+				.addGap(0, 552, Short.MAX_VALUE)
 		);
 		CharicPan.setLayout(gl_CharicPan);
 		contentPane.setLayout(null);
@@ -98,7 +114,7 @@ public class FrameLayout extends JFrame {
 		JButton NextBtn = new JButton("New button");
 		NextBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TempCha.setBackground(Color.RED);
+				TalkPan.setBackground(Color.RED);
 				
 			}
 		});
@@ -108,5 +124,28 @@ public class FrameLayout extends JFrame {
 		ButnPan.add(NextBtn);
 		TalkPan.setLayout(gl_TalkPan);
 		contentPane.add(CharicPan);
+		
+		SetBgrImg sbi = null;
+		try {
+			sbi = new SetBgrImg("pgs.jpg");
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		//this.add(sbi);
+		sbi.setBounds(0, 0, FrameWidth, FrameHeight);
+		getContentPane().add(sbi);
+		
+//		SetChaImg sci = null;
+//		try {
+//			sci = new SetChaImg("kyoko.png");
+//		} catch (IOException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//		//this.add(sbi);
+//		sci.setBounds(0, 0, 330, 600);
+//		CharicPan.add(sci);
+//		CharicPan.setOpaque(true);
 	}
 }
