@@ -13,6 +13,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class FrameLayout extends JFrame {
 
@@ -31,6 +33,7 @@ public class FrameLayout extends JFrame {
 					FrameLayout frame = new FrameLayout();
 					frame.setVisible(true);
 				} catch (Exception e) {
+					System.out.println("Error!! Error!! Error!!");
 					e.printStackTrace();
 				}
 			}
@@ -41,7 +44,7 @@ public class FrameLayout extends JFrame {
 	 * Create the frame.
 	 */
 	public FrameLayout() {
-		setTitle("Love Simulator");
+		setTitle("¢¾ Love Simulator ¢¾");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, FrameWidth, FrameHeight);
 		contentPane = new JPanel();
@@ -84,13 +87,22 @@ public class FrameLayout extends JFrame {
 		contentPane.add(TalkPan);
 
 		JPanel ButnPan = new JPanel();
+		TalkSpace ts = new TalkSpace();
+		//TalkPan.add(ts.getTa());
 		GroupLayout gl_TalkPan = new GroupLayout(TalkPan);
-		gl_TalkPan.setHorizontalGroup(gl_TalkPan.createParallelGroup(Alignment.LEADING).addGroup(Alignment.TRAILING,
-				gl_TalkPan.createSequentialGroup().addContainerGap(740, Short.MAX_VALUE).addComponent(ButnPan,
-						GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)));
-		gl_TalkPan.setVerticalGroup(gl_TalkPan.createParallelGroup(Alignment.LEADING).addGroup(Alignment.TRAILING,
-				gl_TalkPan.createSequentialGroup().addContainerGap(86, Short.MAX_VALUE).addComponent(ButnPan,
-						GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)));
+		gl_TalkPan.setHorizontalGroup(
+			gl_TalkPan.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, gl_TalkPan.createSequentialGroup()
+					.addContainerGap(740, Short.MAX_VALUE)
+					.addComponent(ButnPan, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE))
+		);
+		gl_TalkPan.setVerticalGroup(
+			gl_TalkPan.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_TalkPan.createSequentialGroup()
+					.addGap(85)
+					.addComponent(ButnPan, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
 
 		JButton NextBtn = new JButton("New button");
 		NextBtn.addActionListener(new ActionListener() {
