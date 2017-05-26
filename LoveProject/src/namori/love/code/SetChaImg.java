@@ -26,5 +26,6 @@ public class SetChaImg extends JPanel {
 	public Image getImg()
 	{
 		return img;
+		
 	}
 }
