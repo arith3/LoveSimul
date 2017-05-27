@@ -26,19 +26,19 @@ public class FrameLayout extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FrameLayout frame = new FrameLayout();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					System.out.println("Error!! Error!! Error!!");
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					FrameLayout frame = new FrameLayout();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					System.out.println("Error!! Error!! Error!!");
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
