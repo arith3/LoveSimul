@@ -22,14 +22,6 @@ public class FrameLayout extends JFrame {
 	private static final int FrameHeight = 720;
 	private JPanel contentPane;
 	
-	public int getFrameWidth()
-	{
-		return FrameWidth;
-	}
-	public int getFrameHeight()
-	{
-		return FrameHeight;
-	}
 
 	/**
 	 * Launch the application.
@@ -84,7 +76,7 @@ public class FrameLayout extends JFrame {
 		JPanel TalkPan = new JPanel();
 		// TalkPan.setBackground(new Color(100,255,255,255));
 		TalkPan.setOpaque(true);
-		TalkPan.setBounds(60, 417, 783, 118);
+		TalkPan.setBounds(200, 497, 863, 174);
 		GroupLayout gl_CharicPan = new GroupLayout(CharicPan);
 		gl_CharicPan.setHorizontalGroup(
 				gl_CharicPan.createParallelGroup(Alignment.LEADING).addGap(0, 474, Short.MAX_VALUE));
@@ -95,7 +87,7 @@ public class FrameLayout extends JFrame {
 		contentPane.add(TalkPan);
 
 		JPanel ButnPan = new JPanel();
-		TalkSpace ts = new TalkSpace();
+		//TalkSpace ts = new TalkSpace();
 		//TalkPan.add(ts.getTa());
 		GroupLayout gl_TalkPan = new GroupLayout(TalkPan);
 		gl_TalkPan.setHorizontalGroup(
@@ -129,7 +121,7 @@ public class FrameLayout extends JFrame {
 
 		SetBgrImg sbi = null;
 		try {
-			sbi = new SetBgrImg("pgs.jpg");
+			sbi = new SetBgrImg("namae.png");
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -137,17 +129,9 @@ public class FrameLayout extends JFrame {
 		// this.add(sbi);
 		sbi.setBounds(0, 0, FrameWidth, FrameHeight);
 		getContentPane().add(sbi);
-
-		// SetChaImg sci = null;
-		// try {
-		// sci = new SetChaImg("kyoko.png");
-		// } catch (IOException e1) {
-		// // TODO Auto-generated catch block
-		// e1.printStackTrace();
-		// }
-		// //this.add(sbi);
-		// sci.setBounds(0, 0, 330, 600);
-		// CharicPan.add(sci);
-		// CharicPan.setOpaque(true);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 10, 10);
+		contentPane.add(panel);
 	}
 }
