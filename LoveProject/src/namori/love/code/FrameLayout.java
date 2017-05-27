@@ -13,15 +13,23 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
-import javax.swing.JTextArea;
-import javax.swing.LayoutStyle.ComponentPlacement;
+
 
 public class FrameLayout extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private static final int FrameWidth = 920;
-	private static final int FrameHeight = 600;
+	private static final int FrameWidth = 1280;
+	private static final int FrameHeight = 720;
 	private JPanel contentPane;
+	
+	public int getFrameWidth()
+	{
+		return FrameWidth;
+	}
+	public int getFrameHeight()
+	{
+		return FrameHeight;
+	}
 
 	/**
 	 * Launch the application.
