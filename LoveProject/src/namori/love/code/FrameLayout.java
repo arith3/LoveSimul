@@ -16,8 +16,8 @@ import java.awt.event.ActionEvent;
 public class FrameLayout extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private static final int FrameWidth = 1280;
-	private static final int FrameHeight = 720;
+	protected static final int FrameWidth = 1280;
+	protected static final int FrameHeight = 720;
 	private JPanel contentPane;
 	
 
@@ -71,6 +71,7 @@ public class FrameLayout extends JFrame {
 															// Color(~)
 		CharicPan.setOpaque(false);
 		CharicPan.add(sci);
+		
 
 		JPanel TalkPan = new JPanel();
 		// TalkPan.setBackground(new Color(100,255,255,255));
