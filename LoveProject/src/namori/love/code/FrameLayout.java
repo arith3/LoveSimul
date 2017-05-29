@@ -66,11 +66,12 @@ public class FrameLayout extends JFrame {
 		int ChaW = sci.getImg().getWidth(null);
 		System.out.println(ChaW);
 		sci.setBounds(0, 0, ChaH, ChaW);
-
+		sci.setOpaque(false);
+	
 		CharicPan.setBounds((FrameWidth - ChaW) / 2, (FrameHeight - ChaH) / 2, ChaW, ChaH);
-		CharicPan.setBackground(new Color(255, 0, 0, 0)); // 투명한 패널 만드는 방법: new
+		//CharicPan.setBackground(new Color(255, 0, 0, 0)); // 투명한 패널 만드는 방법: new
 															// Color(~)
-		CharicPan.setOpaque(true);
+		CharicPan.setOpaque(false);
 		CharicPan.add(sci);
 
 		JPanel TalkPan = new JPanel();
