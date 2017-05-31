@@ -15,7 +15,7 @@ public class ExamPan extends JPanel {
 	public ExamPan() {
 		
 		JPanel panel = new JPanel();
-		panel.setSize(FrameLayout.FrameWidth, FrameLayout.FrameHeight);
+		panel.setSize(Stat.FrameWidth, Stat.FrameHeight);
 		
 		JTextArea textArea = new JTextArea();
 		

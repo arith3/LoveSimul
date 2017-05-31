@@ -6,8 +6,6 @@ import javax.swing.JFrame;
 public class LoveFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private static final int FrameWidth = 1280;
-	private static final int FrameHeight = 720;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -27,7 +25,7 @@ public class LoveFrame extends JFrame {
 		JFrame frame = new JFrame("¢¾ Love Simulator ¢¾");
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(FrameWidth, FrameHeight);
+		frame.setSize(Stat.FrameWidth, Stat.FrameHeight);
 		frame.setLocation(100, 100);
 		
 

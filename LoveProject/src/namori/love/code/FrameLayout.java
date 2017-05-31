@@ -16,35 +16,12 @@ import java.awt.event.ActionEvent;
 public class FrameLayout extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	protected static final int FrameWidth = 1280;
-	protected static final int FrameHeight = 720;
 	private JPanel contentPane;
-	
 
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					FrameLayout frame = new FrameLayout();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					System.out.println("Error!! Error!! Error!!");
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
-	/**
-	 * Create the frame.
-	 */
 	public FrameLayout() {
 		setTitle("♥ Love Simulator ♥");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, FrameWidth, FrameHeight);
+		setBounds(100, 100, Stat.FrameWidth, Stat.FrameHeight);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -66,7 +43,7 @@ public class FrameLayout extends JFrame {
 		sci.setBounds(0, 0, ChaH, ChaW);
 		sci.setOpaque(false);
 	
-		CharicPan.setBounds((FrameWidth - ChaW) / 2, (FrameHeight - ChaH) / 2, ChaW, ChaH);
+		CharicPan.setBounds((Stat.FrameWidth - ChaW) / 2, (Stat.FrameHeight - ChaH) / 2, ChaW, ChaH);
 		//CharicPan.setBackground(new Color(255, 0, 0, 0)); // 투명한 패널 만드는 방법: new
 															// Color(~)
 		CharicPan.setOpaque(false);
@@ -127,7 +104,7 @@ public class FrameLayout extends JFrame {
 			e1.printStackTrace();
 		}
 		// this.add(sbi);
-		sbi.setBounds(0, 0, FrameWidth, FrameHeight);
+		sbi.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
 		getContentPane().add(sbi);
 		
 		JPanel panel = new JPanel();
