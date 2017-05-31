@@ -1,7 +1,6 @@
 package namori.love.code;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.GroupLayout;
@@ -17,6 +16,7 @@ public class FrameLayout extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	SetBgrImg sbi;
 
 	public FrameLayout() {
 		setTitle("♥ Love Simulator ♥");
@@ -81,14 +81,27 @@ public class FrameLayout extends JFrame {
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 
-		JButton NextBtn = new JButton("New button");
+		JButton NextBtn = new JButton("NEXT");
 		NextBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TalkPan.setBackground(Color.RED);
-				JLabel lblb = new JLabel("코드조까치도 짜네");
-				TalkPan.add(lblb);
+				
+				
+				
+				//contentPane.setVisible(false);  //다음 프레임으로 넘어가기 위한 코드
+				System.out.println("asdasdasfasd"); //invisible했을때 버튼이 남아있는지 체크하는 코드
+				//LoveFrame.page = 4;  //실험중
+				
+//				ExamPan ep = new ExamPan();
+//				
+//				contentPane.removeAll();
+//				contentPane.add(ep.pan);
+//				contentPane.setVisible(true);
+				
+				callChaImg("p1gs.jpg");
 			}
 		});
+		
+		
 		NextBtn.setForeground(Color.PINK);
 		NextBtn.setBackground(Color.PINK);
 		NextBtn.setOpaque(true);
@@ -96,19 +109,35 @@ public class FrameLayout extends JFrame {
 		TalkPan.setLayout(gl_TalkPan);
 		contentPane.add(CharicPan);
 
+//		SetBgrImg sbi = null;
+//		try {
+//			sbi = new SetBgrImg("namae.png");
+//		} catch (IOException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//		sbi.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
+//		getContentPane().add(sbi);
+		callChaImg("namae.png");
+		contentPane.repaint();
+		
+//		JPanel panel = new JPanel();
+//		panel.setBounds(0, 0, 10, 10);
+//		contentPane.add(panel);
+	}
+	
+	
+	private void callChaImg(String file)
+	{
 		SetBgrImg sbi = null;
 		try {
-			sbi = new SetBgrImg("namae.png");
+			sbi = new SetBgrImg(file);
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		// this.add(sbi);
 		sbi.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
 		getContentPane().add(sbi);
-		
-		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 10, 10);
-		contentPane.add(panel);
+		System.out.println("배경이미지 설정: "+file+sbi.getUIClassID());
 	}
+	
 }
