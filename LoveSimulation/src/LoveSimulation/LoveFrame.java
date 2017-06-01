@@ -14,7 +14,7 @@ public class LoveFrame extends JFrame{
 	
 	private Graphics screenGraphics;
 	private Image screenImage;
-	private Image background = new ImageIcon(Main.class.getResource("../images/introBackground.jpg")).getImage();;
+	private Image background = new ImageIcon("introBackground.jpg").getImage();;
 	
 	
 	
@@ -26,8 +26,7 @@ public class LoveFrame extends JFrame{
 	private ImageIcon exitButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/exitButtonEntered.png"));
 	private ImageIcon exitButtonBasicImage = new ImageIcon(Main.class.getResource("../images/exitButtonBasic.png"));
 	private JButton exitButton = new JButton(exitButtonBasicImage);
-	
-	
+	private JButton exitButton2 = new JButton(exitButtonBasicImage);
 	
 	
 	private ImageIcon quitButtonBasicImage = new ImageIcon(Main.class.getResource("../images/quitButtonBasic.png"));
@@ -41,7 +40,6 @@ public class LoveFrame extends JFrame{
     
     
     
-   
     
     
     public LoveFrame()
@@ -53,13 +51,47 @@ public class LoveFrame extends JFrame{
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
-		setBackground(new Color(0, 0, 0, 0));
 		setLayout(null);
 		//basical setting
 		
 		
+		JPanel p1 = new JPanel(){
+            public void paintComponent(Graphics g) {
+                g.drawImage(background, 0, 0, null);
+                setOpaque(false);
+                super.paintComponent(g);
+               } 
+        };
 		
-		///////////////////////////////////////
+		p1.setBounds(0, 0, 1280, 720);
+        p1.setLayout(null);
+        p1.add(exitButton);
+        p1.add(quitButton);
+        p1.add(startButton);
+        p1.add(menuBar);
+        
+        add(p1);
+	
+        p1.setVisible(true);
+        
+        JPanel p2 = new JPanel(){
+            public void paintComponent(Graphics g) {
+                g.drawImage(background, 0, 0, null);
+                setOpaque(false);
+                super.paintComponent(g);
+               } 
+        };
+
+        p2.setBounds(0, 0, 1280, 720);
+        p2.setLayout(null);
+        p2.add(exitButton2);
+        p2.add(menuBar);
+        add(p2);
+        
+        
+		
+        
+        ///////////////////////////////////////
 		//setting exit button 
 		exitButton.setBounds(1245, 0, 30, 30);
 		exitButton.setBorderPainted(false);
@@ -96,7 +128,42 @@ public class LoveFrame extends JFrame{
 				System.exit(0);
 			}
 		});
-		add(exitButton);
+		
+		exitButton2.setBounds(1245, 0, 30, 30);
+		exitButton2.setBorderPainted(false);
+		exitButton2.setContentAreaFilled(false);
+		exitButton2.setFocusPainted(false);
+		exitButton2.addMouseListener(new MouseAdapter() {
+			
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				exitButton2.setIcon(exitButtonEnteredImage);
+				exitButton2.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
+				buttonEnteredMusic.start();
+			}
+			
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				exitButton2.setIcon(exitButtonBasicImage);
+				exitButton2.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+			
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Music buttonEnteredMusic = new Music("buttonPressedMusic.mp3", false);
+				buttonEnteredMusic.start();
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
+				System.exit(0);
+			}
+		});
 		
 		
 		
@@ -132,12 +199,11 @@ public class LoveFrame extends JFrame{
 				Music buttonEnteredMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonEnteredMusic.start();
 				bgm.close();
-				startButton.setVisible(false);
-				quitButton.setVisible(false);
-				background = new ImageIcon(Main.class.getResource("../images/school.jpg")).getImage();
+				background = new ImageIcon("school.jpg").getImage();
+				p1.setVisible(false);
 			}
 		});
-		add(startButton);
+		
 		
 		
 		///////////////////////////////////////
@@ -177,7 +243,7 @@ public class LoveFrame extends JFrame{
 				System.exit(0);
 			}
 		});
-		add(quitButton);
+		
 		
 		
 		
@@ -199,33 +265,55 @@ public class LoveFrame extends JFrame{
 				setLocation(x - pointX, y - pointY);
 			}
 		});
-		add(menuBar);
 		
+		///////////////////////////////////////
+		//setting quit button 
+		quitButton.setBounds(800, 330, 400, 100);
+		quitButton.setBorderPainted(false);
+		quitButton.setContentAreaFilled(false);
+		quitButton.setFocusPainted(false);	
+		quitButton.addMouseListener(new MouseAdapter() {
+
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				quitButton.setIcon(quitButtonEnteredImage);//quitButton을 quitButtonEnteredImage로 change
+				quitButton.setCursor(new Cursor(Cursor.HAND_CURSOR));//cursor를 손 모양으로 바꿈
+				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);//cursor가 위로 올라 갔을 때 음악 나옴
+				buttonEnteredMusic.start();//cursor가 위로 올라 갔을 때 음악 나옴
+			}
+
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				quitButton.setIcon(quitButtonBasicImage);
+				quitButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Music buttonEnteredMusic = new Music("buttonPressedMusic.mp3", false);
+				buttonEnteredMusic.start();
+				try {
+					Thread.sleep(1000); // exitButton을 눌렀을 때 1초 있다가 창이 종료됨.(이거 없으면 창이 바로 꺼져서 exitButton눌렀을 때 소리 안들림)
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
+				System.exit(0);
+			}
+		});
 		
-		
+		 
 		
 		///////////////////////////////////////
 		//start bgm 
 		bgm = new Music("bgm.mp3",true);
 		bgm.start();
         
- 
+		
         
 	}
-	
-	public void screenDraw(Graphics g)
-	{
-		g.drawImage(background, 0, 0, null); // 새로 추가되는 것이 아니라 단순히 이미지를 화면에 출력해주기 위해 사용
-		paintComponents(g); //add() 처럼 새로 추가될 때 사용
-		this.repaint();
-	}
-	
-	
-	public void paint(Graphics g)
-	{
-		screenImage = createImage(Main.SCREEN_WIDTH,Main.SCREEN_HEIGHT);
-		screenGraphics = screenImage.getGraphics();
-		screenDraw(screenGraphics);
-		g.drawImage(screenImage,0,0,null);
-	}
+   
+    
 }
