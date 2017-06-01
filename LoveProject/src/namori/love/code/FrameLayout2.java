@@ -1,12 +1,14 @@
 package namori.love.code;
 
-import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -15,14 +17,14 @@ import java.awt.event.ActionEvent;
 public class FrameLayout2 extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	// private JPanel contentPane;
-	SetBgrImg sbi;
-	SetChaImg sci;
-	JPanel mainPane;
-	JPanel bgrPan;
-	JPanel chaPan;
-	JPanel textPan;
-	JLayeredPane lp;
+	private SetBgrImg sbi;
+	private SetChaImg sci;
+	private JPanel mainPane;
+	private JPanel textPan;
+	private JLayeredPane lp;
+	private JTextArea ta;
+	private int chaCnt;
+	private int bgrCnt;
 
 	public JPanel getMain() {
 		return mainPane;
@@ -30,27 +32,19 @@ public class FrameLayout2 extends JPanel {
 
 	public FrameLayout2() {
 		mainPane = new JPanel();
-		bgrPan = new JPanel();
-		chaPan = new JPanel();
 		lp = new JLayeredPane();
 		LayoutSet();
-		// getContentPane().add(mainPane);
 	}
 
 	private void LayoutSet() {
-		//mainPane.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
-		mainPane.setBackground(Color.RED);
-		// mainPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		mainPane.setLayout(null);
-		bgrPan.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
 
 		SetBgr("abcd.jpg");
-		SetCha("kyoko.png");
+		SetCha("fairy.png");
+		
 		SetText();
 		MakeBtn();
 		lp.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
-		lp.add(bgrPan, JLayeredPane.DEFAULT_LAYER);
-		lp.add(chaPan, JLayeredPane.PALETTE_LAYER);
 		lp.add(textPan, JLayeredPane.MODAL_LAYER);
 
 		lp.setVisible(true);
@@ -59,19 +53,28 @@ public class FrameLayout2 extends JPanel {
 	}
 
 	private void SetBgr(String file) {
+		if (bgrCnt != 0)
+			lp.remove(sbi);
+
 		sbi = null;
 		try {
 			sbi = new SetBgrImg(file);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
+		
 		sbi.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
-		bgrPan.add(sbi);
-		bgrPan.repaint();
+		sbi.repaint();
+		lp.add(sbi, JLayeredPane.DEFAULT_LAYER);
+
 		System.out.println("배경이미지 설정: " + file + sbi.getWidth());
+		bgrCnt++;
 	}
 
 	private void SetCha(String file) {
+		if (chaCnt != 0)
+			lp.remove(sci);
+
 		sci = null;
 		try {
 			sci = new SetChaImg(file);
@@ -82,50 +85,44 @@ public class FrameLayout2 extends JPanel {
 		System.out.println(ChaH);
 		int ChaW = sci.getImg().getWidth(null);
 		System.out.println(ChaW);
-		sci.setBounds(0, 0, ChaH, ChaW);
-		sci.setOpaque(false);
 
-		chaPan.setBounds((Stat.FrameWidth - ChaW) / 2, (Stat.FrameHeight - ChaH) / 2, ChaW, ChaH);
-		chaPan.setOpaque(false);
-		chaPan.setVisible(true);
-		chaPan.add(sci);
+		sci.setBounds((Stat.FrameWidth - ChaW) / 2, (Stat.FrameHeight - ChaH) / 2, ChaW, ChaH);
+		sci.setOpaque(false);
+		sci.repaint();
+		lp.add(sci, JLayeredPane.PALETTE_LAYER);
+		chaCnt++;
 	}
 
 	private void SetText() {
 		textPan = new JPanel();
-
+		textPan.setLayout(new BorderLayout());
+		ta = new JTextArea();
+		ta.setLineWrap(true);
+		ta.setWrapStyleWord(true);
+		ta.setFont(new Font("Comic Sans MS", Font.BOLD, 42));
+		ta.setText("Hello my name is Fairy. Shall we learning about JAVA?");
+		JScrollPane sp = new JScrollPane(ta);
+		textPan.add(sp);
 		textPan.setOpaque(true);
-		textPan.setBounds(200, 497, 863, 174);
+		textPan.setBounds((Stat.FrameWidth - 720) / 2, 500, 720, 180);
 		textPan.setBackground(Color.BLACK);
-
-		// mainPane.add(textPan);
 	}
 
+	// 지금은 버튼으로 배경이랑 캐릭터 바꾸는것만 구현함.
 	private void MakeBtn() {
 		JButton nextBtn = new JButton("NEXT");
 
-		nextBtn.setBounds(600, 100, 50, 50);
-		nextBtn.setForeground(Color.PINK);
-		nextBtn.setBackground(Color.PINK);
 		nextBtn.setOpaque(true);
-		textPan.add(nextBtn);
+		textPan.add(nextBtn, BorderLayout.EAST);
 		nextBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				// contentPane.setVisible(false); //다음 프레임으로 넘어가기 위한 코드
-				System.out.println("asdasdasfasd"); // invisible했을때 버튼이 남아있는지
-													// 체크하는 코드
-				// LoveFrame.page = 4; //실험중
-
-				// ExamPan ep = new ExamPan();
-				//
-				// contentPane.removeAll();
-				// contentPane.add(ep.pan);
-				// contentPane.setVisible(true);
+				System.out.println("Change Will be soon");
 
 				SetBgr("namae.png");
 				SetCha("karen.png");
-				// getContentPane().repaint();
+				ta.setText("Welcome to the HELL OOP class by Teemu.");
 			}
 		});
 	}

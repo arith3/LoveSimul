@@ -27,6 +27,7 @@ public class LoveFrame extends JFrame {
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(Stat.FrameWidth, Stat.FrameHeight);
+		frame.setResizable(false);
 		frame.setLocation(100, 100);
 		
 		
@@ -34,7 +35,6 @@ public class LoveFrame extends JFrame {
 		
 		frame.add(fl.getMain());
 		
-		System.out.println(fl.mainPane.getWidth());
 		
 //		FrLy3 f = new FrLy3();
 //		frame.add(f.getContentPane());
