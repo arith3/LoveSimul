@@ -30,9 +30,14 @@ public class LoveFrame extends JFrame {
 		frame.setLocation(100, 100);
 		
 		
-		FrameLayout fl = new FrameLayout();
+		FrameLayout2 fl = new FrameLayout2();
 		
-		frame.add(fl.getContentPane());
+		frame.add(fl.getMain());
+		
+		System.out.println(fl.mainPane.getWidth());
+		
+//		FrLy3 f = new FrLy3();
+//		frame.add(f.getContentPane());
 		//여기서 객체 만들면서 추가하면 될듯?
 		//내 생각엔 패널 하나 더 만들어서 이 클래스에선 그 패널 출력만 하고 거기서 바꾸자
 

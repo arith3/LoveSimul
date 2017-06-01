@@ -24,20 +24,8 @@ public class SetChaImg extends JPanel {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(img, 0, 0, null);
-		
+		g.drawImage(img, 0, 0, null);	
 	}
-	
-//	public RenderedImage getImage(Image img)
-//	{
-//		BufferedImage bufferedImage = new BufferedImage(img.getWidth(null),
-//				img.getHeight(null), BufferedImage.TYPE_INT_RGB);
-//		
-//		final Graphics2D g2 = bufferedImage.createGraphics();  
-//	      g2.drawImage(img, 0, 0, null);  
-//	      g2.dispose();  
-//	      return bufferedImage;
-//	}
 	
 	public Image getImg()
 	{
