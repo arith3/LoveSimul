@@ -13,15 +13,16 @@ import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 
-public class FrameLayout extends JFrame {
+public class FrLy3 extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	SetBgrImg sbi;
 	JPanel BgPan;
 	JLayeredPane lp = new JLayeredPane();
+	private SetChaImg sci_1;
 
-	public FrameLayout() {
+	public FrLy3() {
 		setTitle("♥ Love Simulator ♥");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, Stat.FrameWidth, Stat.FrameHeight);
@@ -41,23 +42,23 @@ public class FrameLayout extends JFrame {
 		
 		SetChaImg sci = null;
 		try {
-			sci = new SetChaImg("karen.png");
+			sci_1 = new SetChaImg("karen.png");
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		int ChaH = sci.getImg().getHeight(null);
+		int ChaH = sci_1.getImg().getHeight(null);
 		System.out.println(ChaH);
-		int ChaW = sci.getImg().getWidth(null);
+		int ChaW = sci_1.getImg().getWidth(null);
 		System.out.println(ChaW);
-		sci.setBounds(0, 0, ChaH, ChaW);
-		sci.setOpaque(false);
+		sci_1.setBounds(0, 0, 0, 0);
+		sci_1.setOpaque(false);
 	
 		CharicPan.setBounds((Stat.FrameWidth - ChaW) / 2, (Stat.FrameHeight - ChaH) / 2, ChaW, ChaH);
 		//CharicPan.setBackground(new Color(255, 0, 0, 0)); // 투명한 패널 만드는 방법: new
 															// Color(~)
 		CharicPan.setOpaque(false);
-		CharicPan.add(sci);
+		CharicPan.add(sci_1);
 		
 		BgPan.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
 		//BgPan.setOpaque(false);
@@ -65,35 +66,14 @@ public class FrameLayout extends JFrame {
 		
 
 		JPanel TalkPan = new JPanel();
-		// TalkPan.setBackground(new Color(100,255,255,255));
-		TalkPan.setOpaque(true);
 		TalkPan.setBounds(200, 497, 863, 174);
-		GroupLayout gl_CharicPan = new GroupLayout(CharicPan);
-		gl_CharicPan.setHorizontalGroup(
-				gl_CharicPan.createParallelGroup(Alignment.LEADING).addGap(0, 474, Short.MAX_VALUE));
-		gl_CharicPan
-				.setVerticalGroup(gl_CharicPan.createParallelGroup(Alignment.TRAILING).addGap(0, 552, Short.MAX_VALUE));
-		CharicPan.setLayout(gl_CharicPan);
+		CharicPan.setLayout(null);
+		CharicPan.add(sci_1);
 		contentPane.setLayout(null);
 		contentPane.add(TalkPan);
 
 		JPanel ButnPan = new JPanel();
-		//TalkSpace ts = new TalkSpace();
-		//TalkPan.add(ts.getTa());
-		GroupLayout gl_TalkPan = new GroupLayout(TalkPan);
-		gl_TalkPan.setHorizontalGroup(
-			gl_TalkPan.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_TalkPan.createSequentialGroup()
-					.addContainerGap(740, Short.MAX_VALUE)
-					.addComponent(ButnPan, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE))
-		);
-		gl_TalkPan.setVerticalGroup(
-			gl_TalkPan.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_TalkPan.createSequentialGroup()
-					.addGap(85)
-					.addComponent(ButnPan, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
+		ButnPan.setBounds(820, 85, 43, 32);
 
 		JButton NextBtn = new JButton("NEXT");
 		NextBtn.addActionListener(new ActionListener() {
@@ -115,13 +95,14 @@ public class FrameLayout extends JFrame {
 				//getContentPane().repaint();
 			}
 		});
+		TalkPan.setLayout(null);
 		
 		
 		NextBtn.setForeground(Color.PINK);
 		NextBtn.setBackground(Color.PINK);
 		NextBtn.setOpaque(true);
 		ButnPan.add(NextBtn);
-		TalkPan.setLayout(gl_TalkPan);
+		TalkPan.add(ButnPan);
 		//contentPane.add(CharicPan);  //레이어패널 테스트용!!!
 		//contentPane.add(BgPan);
 

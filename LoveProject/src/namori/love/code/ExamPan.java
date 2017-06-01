@@ -10,12 +10,17 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 public class ExamPan extends JPanel {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	JPanel pan;
+	/**
 	 * Create the panel.
 	 */
 	public ExamPan() {
 		
-		JPanel panel = new JPanel();
-		panel.setSize(FrameLayout.FrameWidth, FrameLayout.FrameHeight);
+		JPanel panel = new JPanel(); pan = panel;
+		panel.setSize(Stat.FrameWidth, Stat.FrameHeight);
 		
 		JTextArea textArea = new JTextArea();
 		

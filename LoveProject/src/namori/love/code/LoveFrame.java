@@ -6,8 +6,7 @@ import javax.swing.JFrame;
 public class LoveFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private static final int FrameWidth = 1280;
-	private static final int FrameHeight = 720;
+	//protected static int page;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -27,16 +26,21 @@ public class LoveFrame extends JFrame {
 		JFrame frame = new JFrame("♥ Love Simulator ♥");
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(FrameWidth, FrameHeight);
+		frame.setSize(Stat.FrameWidth, Stat.FrameHeight);
+		frame.setResizable(false);
 		frame.setLocation(100, 100);
 		
-
-		FrameLayout fl = new FrameLayout();
 		
-		frame.add(fl.getContentPane());
+		FrameLayout2 fl = new FrameLayout2();
+		
+		frame.add(fl.getMain());
+		
+		
+//		FrLy3 f = new FrLy3();
+//		frame.add(f.getContentPane());
 		//여기서 객체 만들면서 추가하면 될듯?
 		//내 생각엔 패널 하나 더 만들어서 이 클래스에선 그 패널 출력만 하고 거기서 바꾸자
-		
+
 		
 
 		frame.setVisible(true);
