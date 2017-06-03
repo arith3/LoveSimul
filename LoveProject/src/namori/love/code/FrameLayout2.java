@@ -64,7 +64,7 @@ public class FrameLayout2 extends JPanel {
 		}
 		
 		sbi.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
-		sbi.repaint();
+		//sbi.repaint();
 		lp.add(sbi, JLayeredPane.DEFAULT_LAYER);
 
 		System.out.println("배경이미지 설정: " + file + sbi.getWidth());
@@ -88,7 +88,7 @@ public class FrameLayout2 extends JPanel {
 
 		sci.setBounds((Stat.FrameWidth - ChaW) / 2, (Stat.FrameHeight - ChaH) / 2, ChaW, ChaH);
 		sci.setOpaque(false);
-		sci.repaint();
+		//sci.repaint();
 		lp.add(sci, JLayeredPane.PALETTE_LAYER);
 		chaCnt++;
 	}
