@@ -39,7 +39,7 @@ public class FrameLayout2 extends JPanel {
 	private void LayoutSet() {
 		mainPane.setLayout(null);
 
-		SetBgr("abcd.jpg");
+		SetBgr("abcd.jpg"); //이건 나중에 지하 클래스에서 올리게 하자
 		SetCha("fairy.png");
 		
 		SetText();
