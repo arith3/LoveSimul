@@ -123,6 +123,9 @@ public class FrameLayout2 extends JPanel {
 				SetBgr("namae.png");
 				SetCha("karen.png");
 				ta.setText("Welcome to the HELL OOP class by Teemu.");
+				
+				mainPane.removeAll();
+				mainPane.setVisible(false);
 			}
 		});
 	}
