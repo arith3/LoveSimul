@@ -12,9 +12,8 @@ public class LoveFrame extends JFrame{
 	
 	private Music bgm;
 	
-	private Graphics screenGraphics;
-	private Image screenImage;
-	private Image background = new ImageIcon("introBackground.jpg").getImage();;
+	
+	private Image background = new ImageIcon("introBackground.jpg").getImage();
 	
 	
 	
@@ -266,43 +265,7 @@ public class LoveFrame extends JFrame{
 			}
 		});
 		
-		///////////////////////////////////////
-		//setting quit button 
-		quitButton.setBounds(800, 330, 400, 100);
-		quitButton.setBorderPainted(false);
-		quitButton.setContentAreaFilled(false);
-		quitButton.setFocusPainted(false);	
-		quitButton.addMouseListener(new MouseAdapter() {
-
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				quitButton.setIcon(quitButtonEnteredImage);//quitButton을 quitButtonEnteredImage로 change
-				quitButton.setCursor(new Cursor(Cursor.HAND_CURSOR));//cursor를 손 모양으로 바꿈
-				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);//cursor가 위로 올라 갔을 때 음악 나옴
-				buttonEnteredMusic.start();//cursor가 위로 올라 갔을 때 음악 나옴
-			}
-
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				quitButton.setIcon(quitButtonBasicImage);
-				quitButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-			}
-
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				Music buttonEnteredMusic = new Music("buttonPressedMusic.mp3", false);
-				buttonEnteredMusic.start();
-				try {
-					Thread.sleep(1000); // exitButton을 눌렀을 때 1초 있다가 창이 종료됨.(이거 없으면 창이 바로 꺼져서 exitButton눌렀을 때 소리 안들림)
-				} catch (InterruptedException e1) {
-					e1.printStackTrace();
-				}
-				System.exit(0);
-			}
-		});
+		
 		
 		 
 		
