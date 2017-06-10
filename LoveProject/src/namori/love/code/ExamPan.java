@@ -10,8 +10,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 /*
  * This class is exam that has constructor need integer.
@@ -32,6 +30,7 @@ public class ExamPan extends MouseAdapter
 	private JButton cho2;
 	private JButton cho3;
 	private JButton cho4;
+	private JButton btnCallFairy;
 	private JLayeredPane lp;
 	private SetBgrImg sbi;
 	private SetChaImg sci;
@@ -68,6 +67,11 @@ public class ExamPan extends MouseAdapter
 			btnnum = 3;
 		if (e.getSource().equals(cho4))
 			btnnum = 4;
+		
+		if(e.getSource().equals(btnCallFairy)) {
+			FairyPan fp = new FairyPan();
+			PanelChange.convert(fp.getMain());
+		}
 		
 		if(btnnum == ex.getAnswer())
 		{
@@ -180,19 +184,20 @@ public class ExamPan extends MouseAdapter
 		sci.setOpaque(false);
 		lp.add(sci, JLayeredPane.PALETTE_LAYER);
 		
-		JButton btnCallFairy = new JButton("Call Fairy!");
-		btnCallFairy.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				FairyPan fp = new FairyPan();
-				PanelChange.convert(fp.getMain());
-				
-				
-			}
-		});
-		lp.setLayer(btnCallFairy, 400);
+		btnCallFairy = new JButton("Call Fairy!");
+		btnCallFairy.addMouseListener(this);
+//		btnCallFairy.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				
+//				FairyPan fp = new FairyPan();
+//				PanelChange.convert(fp.getMain());
+//				
+//				
+//			}
+//		});
+//		//lp.setLayer(btnCallFairy, 400);
 		btnCallFairy.setBounds(15, 15, 90, 25);
-		lp.add(btnCallFairy);
+		lp.add(btnCallFairy, JLayeredPane.MODAL_LAYER);
 	}
 	
 	private void SetBgr(String file) {
