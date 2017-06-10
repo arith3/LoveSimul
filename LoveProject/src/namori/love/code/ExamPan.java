@@ -63,13 +63,13 @@ public class ExamPan extends MouseAdapter
 		
 		if(btnnum == ex.getAnswer())
 		{
-			System.out.println("맞았어");
+			System.out.println("You're right!");
 			result.setForeground(Color.GREEN);
 			result.setText("TRUE!!");
 		}
 		else
 		{
-			System.out.println("틀렸어");
+			System.out.println("You're wrong!");
 			result.setForeground(Color.RED);
 			result.setText("FALSE!!");
 		}
