@@ -31,12 +31,12 @@ public class LoveFrame extends JFrame {
 		frame.setLocation(100, 100);
 		
 		
-//		FrameLayout3 fl = new FrameLayout3();
+		FrameLayout3 fl = new FrameLayout3();
+		
+		frame.add(fl.getMain());
 //		
-//		frame.add(fl.getMain());
-//		
-		ExamPan ep = new ExamPan(1);
-		frame.getContentPane().add(ep.getMain());
+//		ExamPan ep = new ExamPan(1);
+//		frame.getContentPane().add(ep.getMain());
 //		FrLy3 f = new FrLy3();
 //		frame.add(f.getContentPane());
 		//여기서 객체 만들면서 추가하면 될듯?

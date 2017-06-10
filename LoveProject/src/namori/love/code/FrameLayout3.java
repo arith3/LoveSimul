@@ -99,7 +99,7 @@ public class FrameLayout3 extends JPanel {
 		ta = new JTextArea();
 		ta.setLineWrap(true);
 		ta.setWrapStyleWord(true);
-		ta.setFont(new Font("Comic Sans MS", Font.BOLD, 42));
+		ta.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
 		ta.setText("Hello my name is Fairy. Shall we learning about JAVA?");
 		JScrollPane sp = new JScrollPane(ta);
 		textPan.add(sp);
