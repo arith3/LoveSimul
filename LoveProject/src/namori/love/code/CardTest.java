@@ -14,6 +14,7 @@ public class CardTest {
 		frame.setResizable(false);
 		frame.setLocation(100, 100);
 		frame.setVisible(true);
+		frame.setLayout(null);
 		
 		CardPanel cp = new CardPanel();
 		
