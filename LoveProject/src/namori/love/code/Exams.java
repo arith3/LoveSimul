@@ -43,8 +43,8 @@ public class Exams {
 	private void getExam() {
 
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("Problem.txt"));
-			BufferedReader br2 = new BufferedReader(new FileReader("Answer.txt"));
+			BufferedReader br = new BufferedReader(new FileReader("./texts/Problem.txt"));
+			BufferedReader br2 = new BufferedReader(new FileReader("./texts/Answer.txt"));
 
 			// FileReader("Problem.txt"));
 			for (int i = 0; true; i++) {

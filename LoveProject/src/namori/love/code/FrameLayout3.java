@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 
-public class FrameLayout2 extends JPanel {
+public class FrameLayout3 extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private SetBgrImg sbi;
@@ -30,7 +30,7 @@ public class FrameLayout2 extends JPanel {
 		return mainPane;
 	}
 
-	public FrameLayout2() {
+	public FrameLayout3() {
 		mainPane = new JPanel();
 		lp = new JLayeredPane();
 		LayoutSet();
@@ -108,6 +108,14 @@ public class FrameLayout2 extends JPanel {
 		textPan.setBackground(Color.BLACK);
 	}
 
+//	private void MakeFairy()
+//	{
+//		Jbutton fairy = new JButton("Hints");
+//		여기가 아니라 ExamPan클래스에 추가해야 할듯;
+//		
+//	}
+	
+	
 	// 지금은 버튼으로 배경이랑 캐릭터 바꾸는것만 구현함.
 	private void MakeBtn() {
 		JButton nextBtn = new JButton("NEXT");
@@ -124,8 +132,33 @@ public class FrameLayout2 extends JPanel {
 				SetCha("./pics/karen.png");
 				ta.setText("Welcome to the HELL OOP class by Teemu.");
 				
-				mainPane.removeAll();
-				mainPane.setVisible(false);
+/*
+ * 규석이의 코드
+ * 
+ * public void actionPerformed(ActionEvent e) {
+
+            // contentPane.setVisible(false); //다음 프레임으로 넘어가기 위한 코드
+            // System.out.println("Change Will be soon");
+
+            String tmp = p.Dialogue();
+            ta.setText(tmp);
+            System.out.println(tmp);
+            if (tmp == null) {
+               System.out.println("Heeeeee");
+               ExamPan ep = new ExamPan(1);
+               mainPane.removeAll();
+               mainPane.repaint();
+               mainPane.add(ep.getMain());
+
+            }
+         }
+ * 
+ * p를 객체생성을 아직 안해서 오류나는데 위에서 하는가보네 알아서 읽어와봐.
+ * 
+ */
+				
+				//mainPane.removeAll();
+				//mainPane.setVisible(false);
 			}
 		});
 	}

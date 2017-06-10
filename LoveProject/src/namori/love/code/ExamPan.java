@@ -37,8 +37,8 @@ public class ExamPan extends MouseAdapter
 		mainp.setLayout(null);
 		
 		makePane();
-		SetBgr("namae.png");
-		SetCha("karen.png");
+		SetBgr("./pics/namae.png");
+		SetCha("./pics/karen.png");
 		//drawBln();
 
 		mainp.setVisible(true);
