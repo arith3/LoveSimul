@@ -149,8 +149,11 @@ public class FrameLayout3 extends JPanel {
 	            else
 	                ta.setText(tmp);
 	            
+	            
 	            System.out.println(tmp);
 
+	            
+	            
 				
 /*
  * 규석이의 코드
