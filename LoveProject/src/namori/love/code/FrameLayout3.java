@@ -151,9 +151,6 @@ public class FrameLayout3 extends JPanel {
 	            
 	            
 	            System.out.println(tmp);
-
-	            
-	            
 				
 /*
  * 규석이의 코드
