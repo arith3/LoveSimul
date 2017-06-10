@@ -20,7 +20,7 @@ public class Exams {
 
 	protected String getProblem() {
 		String str = null;
-		int temp = 4 * (ExamNum-1);
+		int temp = (ExamNum-1);
 		str = pro.get(temp);
 		return str;
 	} // 문제를 빼오는 기능
@@ -28,7 +28,7 @@ public class Exams {
 	protected ArrayList<String> getChoice() {
 		ArrayList<String> arr = new ArrayList<String>(4);
 		int start = 4 * (ExamNum-1);
-		int end = ExamNum * 5;
+		int end = ExamNum * 4;
 		for(int i = start; i < end; i++)
 			arr.add(cho.get(i));
 		return arr;
@@ -49,18 +49,25 @@ public class Exams {
 			// FileReader("Problem.txt"));
 			for (int i = 0; true; i++) {
 				String line = br.readLine();
-				String line2 = br2.readLine();
 				if (line == null)
 					break;
-				if (i % 5 == 0) {
+				if (i % 5 == 0)
 					pro.add(line);
-					//P++;
-				} else
+				else
 					cho.add(line);
+			}
+
+			while(true)
+			{
+				String line2 = br2.readLine();
+				if (line2 == null)
+					break;
 				ans.add(line2);
 			}
+			
 			br.close();
 			br2.close();
+			
 		} catch (IOException a) {
 			System.out.println("Can't Read");
 		}

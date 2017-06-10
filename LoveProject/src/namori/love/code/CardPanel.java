@@ -18,17 +18,19 @@ public class CardPanel implements KeyListener{
 
 		card = new CardLayout();
 		cardPan = new JPanel(card);
-		cardPan.addKeyListener(this);
+		
 		//cardPan.setLayout(card);]
 		cardPan.setBounds(0, 0, 1280, 720);
 		cardPan.setVisible(true);
 		fr2 = new FrameLayout2();
 		fr2.setBounds(0, 0, 1280, 720);
+		
 		cardPan.add(fr2.getMain(), "talk");
 		eparr = new ArrayList<ExamPan>();
 		for (int i = 0; i < 2; i++) {
 			eparr.add(i, new ExamPan(i+1));
 			cardPan.add(eparr.get(i).getMain(), "ex"+i);
+			//eparr.get(i).getMain().addMouseListener(null);
 		} //일단 4번 문제까지 생성함
 		
 		cardPan.add(fr2.getMain(), "talk");
@@ -57,7 +59,7 @@ public class CardPanel implements KeyListener{
 		char c = e.getKeyChar();
 		System.out.println("CARD CHANGE??");
 		if(c == 'c')
-			card.show(cardPan, "ex2");
+			card.show(cardPan, "talk");
 	}
 
 }
