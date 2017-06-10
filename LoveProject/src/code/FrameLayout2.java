@@ -1,4 +1,4 @@
-package namori.love.code;
+package code;
 
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
@@ -14,8 +14,9 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 
-public class SsibalFrame {
+public class FrameLayout2 extends JPanel {
 
+	private static final long serialVersionUID = 1L;
 	private SetBgrImg sbi;
 	private SetChaImg sci;
 	private JPanel mainPane;
@@ -29,7 +30,7 @@ public class SsibalFrame {
 		return mainPane;
 	}
 
-	public SsibalFrame() {
+	public FrameLayout2() {
 		mainPane = new JPanel();
 		lp = new JLayeredPane();
 		LayoutSet();
@@ -38,9 +39,9 @@ public class SsibalFrame {
 	private void LayoutSet() {
 		mainPane.setLayout(null);
 
-		SetBgr("./pics/abcd.jpg"); // 이건 나중에 지하 클래스에서 올리게 하자
+		SetBgr("./pics/abcd.jpg"); //이건 나중에 지하 클래스에서 올리게 하자
 		SetCha("./pics/fairy.png");
-
+		
 		SetText();
 		MakeBtn();
 		lp.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
@@ -61,9 +62,9 @@ public class SsibalFrame {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-
+		
 		sbi.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
-		// sbi.repaint();
+		//sbi.repaint();
 		lp.add(sbi, JLayeredPane.DEFAULT_LAYER);
 
 		System.out.println("배경이미지 설정: " + file + sbi.getWidth());
@@ -87,7 +88,7 @@ public class SsibalFrame {
 
 		sci.setBounds((Stat.FrameWidth - ChaW) / 2, (Stat.FrameHeight - ChaH) / 2, ChaW, ChaH);
 		sci.setOpaque(false);
-		// sci.repaint();
+		//sci.repaint();
 		lp.add(sci, JLayeredPane.PALETTE_LAYER);
 		chaCnt++;
 	}
@@ -107,27 +108,12 @@ public class SsibalFrame {
 		textPan.setBackground(Color.BLACK);
 	}
 
-	// private void MakeFairy()
-	// {
-	// Jbutton fairy = new JButton("Hints");
-	// 여기가 아니라 ExamPan클래스에 추가해야 할듯;
-	//
-	// }
-
 	// 지금은 버튼으로 배경이랑 캐릭터 바꾸는것만 구현함.
 	private void MakeBtn() {
 		JButton nextBtn = new JButton("NEXT");
 
 		nextBtn.setOpaque(true);
 		textPan.add(nextBtn, BorderLayout.EAST);
-		Person p = new hero();
-		p.talking();
-		// 남자파일 이름p.setFileName(");
-		p.setFileName("./pics/karen.png");
-		Person pe = new heroine();
-		pe.talking();
-		pe.setFileName("./pics/karen.png");
-
 		nextBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -135,25 +121,11 @@ public class SsibalFrame {
 				System.out.println("Change Will be soon");
 
 				SetBgr("./pics/namae.png");
-				SetCha(pe.getFileName());
+				SetCha("./pics/karen.png");
+				ta.setText("Welcome to the HELL OOP class by Teemu.");
 				
-	            String tmp = p.Dialogue();
-	            
-	            if (tmp == null) {
-		               System.out.println("Heeeeee");
-		               ExamPan ep = new ExamPan(1);
-		               SsibalMotherless.frame.getContentPane().removeAll();
-		               SsibalMotherless.frame.setContentPane(ep.getMain());
-		            }
-	            else if(tmp.equals("#"))
-	            	ta.setText(pe.Dialogue());
-	            else
-	                ta.setText(tmp);
-	            
-	            
-	            System.out.println(tmp);
-				
-				
+				mainPane.removeAll();
+				mainPane.setVisible(false);
 			}
 		});
 	}

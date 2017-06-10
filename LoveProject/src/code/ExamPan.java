@@ -1,4 +1,4 @@
-package namori.love.code;
+package code;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -11,7 +11,14 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-public class SsibalExam extends MouseAdapter
+/*
+ * This class is exam that has constructor need integer.
+ * The integer is number of exam.
+ * Has Exams class what call text by text files.
+ * Coded by namori.
+ */
+
+public class ExamPan extends MouseAdapter
 {
 	private JPanel mainp;
 	private JPanel prop; //문제패널
@@ -19,17 +26,20 @@ public class SsibalExam extends MouseAdapter
 	private JPanel chop2; //선택지패널
 	private JPanel chop3; //선택지패널
 	private JPanel chop4; //선택지패널
+	private JPanel faip;
 	private JButton cho1;
 	private JButton cho2;
 	private JButton cho3;
 	private JButton cho4;
+	private JButton btnCallFairy;
 	private JLayeredPane lp;
 	private SetBgrImg sbi;
 	private SetChaImg sci;
 	private Exams ex;
 	private JLabel result;
+	private boolean fairycalled = false;
 	
-	public SsibalExam(int number)
+	public ExamPan(int number)
 	{
 		ex = new Exams(number);
 		mainp = new JPanel();
@@ -39,7 +49,6 @@ public class SsibalExam extends MouseAdapter
 		makePane();
 		SetBgr("./pics/namae.png");
 		SetCha("./pics/karen.png");
-		//drawBln();
 
 		mainp.setVisible(true);
 	}
@@ -60,22 +69,50 @@ public class SsibalExam extends MouseAdapter
 			btnnum = 3;
 		if (e.getSource().equals(cho4))
 			btnnum = 4;
-		
-		if(btnnum == ex.getAnswer())
-		{
+		if (e.getSource().equals(btnCallFairy))
+			btnnum = 5;
+
+		if (btnnum == ex.getAnswer()) {
 			System.out.println("You're right!");
 			result.setForeground(Color.GREEN);
 			result.setText("TRUE!!");
-		}
-		else
-		{
+
+			// try {
+			// Thread.sleep(1000);
+			// } catch (InterruptedException e1) {
+			// // TODO Auto-generated catch block
+			// e1.printStackTrace();
+			// }
+
+			// int result = JOptionPane.showConfirmDialog(mainp, "Are you sure
+			// you want to exit?", "Exiting", JOptionPane.OK_OPTION);
+			// lp.add(new JPanel(), JOptionPane.showConfirmDialog(mainp, "Are
+			// you sure you want to exit?", "Exiting", JOptionPane.OK_OPTION),
+			// JLayeredPane.DRAG_LAYER);
+			// if (result == JOptionPane.OK_OPTION) {
+			// System.exit(0);
+			// }
+			// mainp.repaint();
+
+//			TalkPan tp = new TalkPan();
+//			PanelChange.convert(tp.getMain());
+//			FairyPan fp = new FairyPan();
+//			PanelChange.convert(fp.getMain());
+			if(fairycalled)
+				PanelChange.backback();
+			else
+				PanelChange.back();
+		} else if (btnnum == 5) {
+			FairyPan fp = new FairyPan();
+			PanelChange.convert(fp.getMain());
+			fairycalled = true;
+		} else {
 			System.out.println("You're wrong!");
 			result.setForeground(Color.RED);
 			result.setText("FALSE!!");
 		}
-
 	}
-	
+
 	private void makePane()
 	{
 		lp = new JLayeredPane();
@@ -84,6 +121,7 @@ public class SsibalExam extends MouseAdapter
 		chop2 = new JPanel();
 		chop3 = new JPanel();
 		chop4 = new JPanel();
+		faip = new JPanel();
 		
 		prop.setBounds(400, 100, 800, 80);
 		//prop.setOpaque(false);
@@ -98,8 +136,7 @@ public class SsibalExam extends MouseAdapter
 		cho1.addMouseListener(this);
 		chop1.setLayout(new BorderLayout());
 		cho1.setText(ex.getChoice().get(0));
-
-		chop1.add(cho1);
+		chop1.add(cho1, BorderLayout.CENTER);
 		
 		chop2.setBounds(600, 340, 600, 80);
 		cho2 = new JButton();
@@ -125,6 +162,13 @@ public class SsibalExam extends MouseAdapter
 		cho4.setText(ex.getChoice().get(3));
 		chop4.add(cho4, BorderLayout.CENTER);
 		
+		faip.setBounds(15, 15, 90, 25);
+		btnCallFairy = new JButton("Call Fairy!");
+		//btnCallFairy.setBounds(15, 15, 90, 25);
+		btnCallFairy.addMouseListener(this);
+		faip.setLayout(new BorderLayout());
+		faip.add(btnCallFairy, BorderLayout.CENTER);
+		
 		result = new JLabel("");
 		result.setText("Solve it!");
 		result.setFont(new Font("Comic Sans MS", Font.BOLD, 80));
@@ -133,14 +177,13 @@ public class SsibalExam extends MouseAdapter
 		lp.add(result, JLayeredPane.PALETTE_LAYER);
 		
 		lp.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
-		lp.add(chop1, JLayeredPane.MODAL_LAYER);
-		lp.add(chop2, JLayeredPane.MODAL_LAYER);
-		lp.add(chop3, JLayeredPane.MODAL_LAYER);
-		System.out.println("asdhjasjkfhasldkghwaelkhfsdkhglafesgfdg");
-		lp.add(chop4, JLayeredPane.MODAL_LAYER);
-		lp.add(prop, JLayeredPane.MODAL_LAYER);
-		//lp.setVisible(true);
-
+		lp.add(chop1, JLayeredPane.PALETTE_LAYER);
+		lp.add(chop2, JLayeredPane.PALETTE_LAYER);
+		lp.add(chop3, JLayeredPane.PALETTE_LAYER);
+		lp.add(chop4, JLayeredPane.PALETTE_LAYER);
+		lp.add(faip, JLayeredPane.PALETTE_LAYER);
+		lp.add(prop, JLayeredPane.PALETTE_LAYER);
+		lp.setVisible(true);
 		mainp.add(lp);
 	}
 	
@@ -158,7 +201,6 @@ public class SsibalExam extends MouseAdapter
 
 		sci.setBounds((Stat.FrameWidth - ChaW) / 8, (Stat.FrameHeight - ChaH), ChaW, ChaH);
 		sci.setOpaque(false);
-		//sci.repaint();
 		lp.add(sci, JLayeredPane.PALETTE_LAYER);
 	}
 	
@@ -174,24 +216,6 @@ public class SsibalExam extends MouseAdapter
 		//sbi.repaint();
 		lp.add(sbi, JLayeredPane.DEFAULT_LAYER);
 
-		System.out.println("배경이미지 설정: " + file + sbi.getWidth());
+		//System.out.println("배경이미지 설정: " + file + sbi.getWidth());
 	}
-	
-//	private void drawBln() {
-//		SetChaImg sci2 = null;
-//		try {
-//			sci2 = new SetChaImg("prob.png");
-//		} catch (IOException e1) {
-//			e1.printStackTrace();
-//		}
-//		int ChaH = sci2.getImg().getHeight(null);
-//		System.out.println(ChaH);
-//		int ChaW = sci2.getImg().getWidth(null);
-//		System.out.println(ChaW);
-//
-//		sci2.setBounds(0,0, ChaW, ChaH);
-//		sci2.setOpaque(false);
-//		//sci.repaint();
-//		lp.add(sci2, JLayeredPane.PALETTE_LAYER);
-//	}
 }

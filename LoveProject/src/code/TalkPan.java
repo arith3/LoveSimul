@@ -1,19 +1,26 @@
-package namori.love.code;
+package code;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-
-import javax.swing.JButton;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class FairyPan {
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.awt.event.ActionEvent;
+
+/*
+ * This class is mainly looked talking area.
+ * Separate each image call, include layer.
+ * Coded by namori.
+ */
+
+public class TalkPan {
 
 	private SetBgrImg sbi;
 	private SetChaImg sci;
@@ -28,7 +35,7 @@ public class FairyPan {
 		return mainPane;
 	}
 
-	public FairyPan() {
+	public TalkPan() {
 		mainPane = new JPanel();
 		lp = new JLayeredPane();
 		LayoutSet();
@@ -37,9 +44,9 @@ public class FairyPan {
 	private void LayoutSet() {
 		mainPane.setLayout(null);
 
-		SetBgr("./pics/fbg.png");
-		SetCha("./pics/kyoko.png");
-
+		SetBgr("./pics/abcd.jpg"); //이건 나중에 지하 클래스에서 올리게 하자
+		SetCha("./pics/fairy.png");
+		
 		SetText();
 		MakeBtn();
 		lp.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
@@ -60,9 +67,12 @@ public class FairyPan {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-
+		
 		sbi.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
+		//sbi.repaint();
 		lp.add(sbi, JLayeredPane.DEFAULT_LAYER);
+
+		System.out.println("배경이미지 설정: " + file + sbi.getWidth());
 		bgrCnt++;
 	}
 
@@ -77,10 +87,13 @@ public class FairyPan {
 			e1.printStackTrace();
 		}
 		int ChaH = sci.getImg().getHeight(null);
+		System.out.println(ChaH);
 		int ChaW = sci.getImg().getWidth(null);
+		System.out.println(ChaW);
 
-		sci.setBounds((Stat.FrameWidth - ChaW) / 2, (Stat.FrameHeight - ChaH) / 3, ChaW, ChaH);
+		sci.setBounds((Stat.FrameWidth - ChaW) / 2, (Stat.FrameHeight - ChaH) / 2, ChaW, ChaH);
 		sci.setOpaque(false);
+		//sci.repaint();
 		lp.add(sci, JLayeredPane.PALETTE_LAYER);
 		chaCnt++;
 	}
@@ -91,8 +104,8 @@ public class FairyPan {
 		ta = new JTextArea();
 		ta.setLineWrap(true);
 		ta.setWrapStyleWord(true);
-		ta.setFont(new Font("Comic Sans MS", Font.BOLD, 48));
-		ta.setText("Hello! I am JAVA Fairy.\nDo you need some tips?");
+		ta.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
+		ta.setText("Hello my name is Fairy. Shall we learning about JAVA?");
 		JScrollPane sp = new JScrollPane(ta);
 		textPan.add(sp);
 		textPan.setOpaque(true);
@@ -101,27 +114,43 @@ public class FairyPan {
 	}
 
 	private void MakeBtn() {
-		JButton nextBtn = new JButton("YES!");
+		JButton nextBtn = new JButton("NEXT");
+
 		nextBtn.setOpaque(true);
 		textPan.add(nextBtn, BorderLayout.EAST);
-
+		Person p=new hero();
+		p.talking();
+		//남자파일 이름p.setFileName(");
+		p.setFileName("./pics/karen.png");
+		Person pe=new heroine();
+		pe.talking();
+		pe.setFileName("./pics/karen.png");
+		
 		nextBtn.addActionListener(new ActionListener() {
-			int btncounter = 0;
-
 			public void actionPerformed(ActionEvent e) {
 
+				// contentPane.setVisible(false); //다음 프레임으로 넘어가기 위한 코드
 				System.out.println("Change Will be soon");
-				if (btncounter == 0) {
-					ta.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
-					ta.setText("Hints~~~~~~~~~~~~~~~~~~~~~~~~");
-					nextBtn.setText("END");
-				} else {
-					//System.exit(0);
-					PanelChange.back();
-				}
-				btncounter++;
+
+				SetBgr("./pics/namae.png");
+				SetCha(pe.getFileName());
+				
+	            String tmp = p.Dialogue();
+	            
+	            if (tmp == null) {
+		               System.out.println("Heeeeee");
+		               ExamPan ep = new ExamPan(1);
+		               PanelChange.convert(ep.getMain());
+		               //이 뒤에 시험 다음 대사로 넘어가게 코딩해라
+		            }
+	            else if(tmp.equals("#"))
+	            	ta.setText(pe.Dialogue());
+	            else
+	                ta.setText(tmp);
+ 
+	            System.out.println(tmp);
+				
 			}
 		});
 	}
-
 }

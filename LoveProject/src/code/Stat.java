@@ -1,4 +1,4 @@
-package namori.love.code;
+package code;
 
 public class Stat {
 	protected static final int FrameWidth = 1280;

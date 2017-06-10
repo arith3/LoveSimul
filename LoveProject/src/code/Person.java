@@ -1,4 +1,4 @@
-package namori.love.code;
+package code;
 
 public abstract class Person {//추상메소드 만족
 	
