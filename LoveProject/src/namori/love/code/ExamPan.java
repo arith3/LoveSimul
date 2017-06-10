@@ -93,10 +93,11 @@ public class ExamPan extends MouseAdapter
 			// }
 			// mainp.repaint();
 
-			TalkPan tp = new TalkPan();
-			PanelChange.convert(tp.getMain());
+//			TalkPan tp = new TalkPan();
+//			PanelChange.convert(tp.getMain());
 //			FairyPan fp = new FairyPan();
 //			PanelChange.convert(fp.getMain());
+			PanelChange.back();
 		} else if (btnnum == 5) {
 			FairyPan fp = new FairyPan();
 			PanelChange.convert(fp.getMain());

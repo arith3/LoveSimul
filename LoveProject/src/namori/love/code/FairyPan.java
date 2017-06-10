@@ -116,7 +116,8 @@ public class FairyPan {
 					ta.setText("Hints~~~~~~~~~~~~~~~~~~~~~~~~");
 					nextBtn.setText("END");
 				} else {
-					System.exit(0);
+					//System.exit(0);
+					PanelChange.back();
 				}
 				btncounter++;
 			}
