@@ -99,7 +99,7 @@ public class SsibalExam extends MouseAdapter
 		chop1.setLayout(new BorderLayout());
 		cho1.setText(ex.getChoice().get(0));
 
-		chop1.add(cho1, BorderLayout.CENTER);
+		chop1.add(cho1);
 		
 		chop2.setBounds(600, 340, 600, 80);
 		cho2 = new JButton();

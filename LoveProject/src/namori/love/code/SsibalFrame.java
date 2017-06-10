@@ -138,10 +138,7 @@ public class SsibalFrame extends JPanel {
 				SetBgr("./pics/namae.png");
 				SetCha(pe.getFileName());
 
-				SsibalMotherless.frame.remove(mainPane);
-				SsibalExam ex = new SsibalExam(2);
-				SsibalMotherless.frame.getContentPane().add(ex.getMain());
-				SsibalMotherless.frame.getContentPane().repaint();
+				
 			}
 		});
 	}
