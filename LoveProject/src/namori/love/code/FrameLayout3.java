@@ -123,6 +123,7 @@ public class FrameLayout3 extends JPanel {
 		textPan.add(nextBtn, BorderLayout.EAST);
 		Person p=new hero();
 		p.talking();
+		//남자파일 이름p.setFileName(");
 		p.setFileName("./pics/karen.png");
 		Person pe=new heroine();
 		pe.talking();
