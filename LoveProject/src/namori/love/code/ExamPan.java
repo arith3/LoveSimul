@@ -9,6 +9,7 @@ import java.io.IOException;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /*
@@ -80,6 +81,12 @@ public class ExamPan extends MouseAdapter
 //				e1.printStackTrace();
 //			}
 			
+//			int result = JOptionPane.showConfirmDialog(mainp, "Are you sure you want to exit?", "Exiting", JOptionPane.OK_OPTION);
+//			lp.add(new JPanel(), JOptionPane.showConfirmDialog(mainp, "Are you sure you want to exit?", "Exiting", JOptionPane.OK_OPTION), JLayeredPane.DRAG_LAYER);
+//			if (result == JOptionPane.OK_OPTION) {
+//				System.exit(0);
+//			}
+//			mainp.repaint();
 			TalkPan tp = new TalkPan();
 			PanelChange.convert(tp.getMain());
 		}
