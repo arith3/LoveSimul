@@ -123,8 +123,10 @@ public class FrameLayout3 extends JPanel {
 		textPan.add(nextBtn, BorderLayout.EAST);
 		Person p=new hero();
 		p.talking();
+		p.setFileName("./pics/karen.png");
 		Person pe=new heroine();
 		pe.talking();
+		pe.setFileName("./pics/karen.png");
 		
 		nextBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -133,7 +135,7 @@ public class FrameLayout3 extends JPanel {
 				System.out.println("Change Will be soon");
 
 				SetBgr("./pics/namae.png");
-				SetCha("./pics/karen.png");
+				SetCha(pe.getFileName());
 				
 	            String tmp = p.Dialogue();
 	            
