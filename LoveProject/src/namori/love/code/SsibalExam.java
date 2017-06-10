@@ -46,7 +46,6 @@ public class SsibalExam extends MouseAdapter
 	
 	public JPanel getMain()
 	{
-		mainp.repaint();
 		return mainp;
 	}
 	
@@ -99,6 +98,7 @@ public class SsibalExam extends MouseAdapter
 		cho1.addMouseListener(this);
 		chop1.setLayout(new BorderLayout());
 		cho1.setText(ex.getChoice().get(0));
+
 		chop1.add(cho1, BorderLayout.CENTER);
 		
 		chop2.setBounds(600, 340, 600, 80);
@@ -133,12 +133,13 @@ public class SsibalExam extends MouseAdapter
 		lp.add(result, JLayeredPane.PALETTE_LAYER);
 		
 		lp.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
-		lp.add(chop1, JLayeredPane.PALETTE_LAYER);
-		lp.add(chop2, JLayeredPane.PALETTE_LAYER);
-		lp.add(chop3, JLayeredPane.PALETTE_LAYER);
-		lp.add(chop4, JLayeredPane.PALETTE_LAYER);
-		lp.add(prop, JLayeredPane.PALETTE_LAYER);
-		lp.setVisible(true);
+		lp.add(chop1, JLayeredPane.MODAL_LAYER);
+		lp.add(chop2, JLayeredPane.MODAL_LAYER);
+		lp.add(chop3, JLayeredPane.MODAL_LAYER);
+		System.out.println("asdhjasjkfhasldkghwaelkhfsdkhglafesgfdg");
+		lp.add(chop4, JLayeredPane.MODAL_LAYER);
+		lp.add(prop, JLayeredPane.MODAL_LAYER);
+		//lp.setVisible(true);
 
 		mainp.add(lp);
 	}

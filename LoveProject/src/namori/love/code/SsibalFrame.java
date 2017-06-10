@@ -140,9 +140,8 @@ public class SsibalFrame extends JPanel {
 
 				SsibalMotherless.frame.remove(mainPane);
 				SsibalExam ex = new SsibalExam(2);
-				SsibalMotherless.frame.add(ex.getMain());
-				ex.getMain().repaint();
-				SsibalMotherless.frame.repaint();
+				SsibalMotherless.frame.getContentPane().add(ex.getMain());
+				SsibalMotherless.frame.getContentPane().repaint();
 			}
 		});
 	}
