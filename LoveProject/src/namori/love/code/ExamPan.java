@@ -9,8 +9,9 @@ import java.io.IOException;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /*
  * This class is exam that has constructor need integer.
@@ -178,6 +179,20 @@ public class ExamPan extends MouseAdapter
 		sci.setBounds((Stat.FrameWidth - ChaW) / 8, (Stat.FrameHeight - ChaH), ChaW, ChaH);
 		sci.setOpaque(false);
 		lp.add(sci, JLayeredPane.PALETTE_LAYER);
+		
+		JButton btnCallFairy = new JButton("Call Fairy!");
+		btnCallFairy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				FairyPan fp = new FairyPan();
+				PanelChange.convert(fp.getMain());
+				
+				
+			}
+		});
+		lp.setLayer(btnCallFairy, 400);
+		btnCallFairy.setBounds(15, 15, 90, 25);
+		lp.add(btnCallFairy);
 	}
 	
 	private void SetBgr(String file) {

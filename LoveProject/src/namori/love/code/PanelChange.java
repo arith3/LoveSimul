@@ -8,6 +8,7 @@ public class PanelChange {
 	{
         LoveFrame.getFrame().getContentPane().removeAll();
         LoveFrame.getFrame().setContentPane(panel);
+        LoveFrame.getFrame().getContentPane().repaint();
 	}
 }
 
