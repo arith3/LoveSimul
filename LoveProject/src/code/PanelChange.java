@@ -1,4 +1,4 @@
-package namori.love.code;
+package code;
 
 import javax.swing.JPanel;
 
@@ -9,17 +9,17 @@ public class PanelChange {
 	protected static void convert(JPanel panel)
 	{
         //LoveFrame.getFrame().getContentPane().removeAll();
-		temp = (JPanel) LoveFrame.getFrame().getContentPane();
-        LoveFrame.getFrame().setContentPane(panel);
-        LoveFrame.getFrame().getContentPane().revalidate();
-        LoveFrame.getFrame().getContentPane().repaint();
+		temp = (JPanel) Main.getFrame().getContentPane();
+        Main.getFrame().setContentPane(panel);
+        Main.getFrame().getContentPane().revalidate();
+        Main.getFrame().getContentPane().repaint();
 	}
 	
 	protected static void back()
 	{
-		LoveFrame.getFrame().setContentPane(temp);
-        LoveFrame.getFrame().getContentPane().revalidate();
-        LoveFrame.getFrame().getContentPane().repaint();
+		Main.getFrame().setContentPane(temp);
+        Main.getFrame().getContentPane().revalidate();
+        Main.getFrame().getContentPane().repaint();
 	}
 }
 

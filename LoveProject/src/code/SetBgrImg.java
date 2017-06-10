@@ -1,4 +1,4 @@
-package namori.love.code;
+package code;
 
 import java.awt.Graphics;
 import java.awt.Image;

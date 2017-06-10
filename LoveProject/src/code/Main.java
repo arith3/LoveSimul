@@ -1,4 +1,4 @@
-package namori.love.code;
+package code;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -9,7 +9,7 @@ import javax.swing.JFrame;
  * Coded by namori.
  */
 
-public class LoveFrame {
+public class Main {
 
 	private static JFrame frame;
 	
@@ -36,12 +36,12 @@ public class LoveFrame {
 		frame.setLocation(100, 100);
 		
 		
-		TalkPan fl = new TalkPan();
-		frame.add(fl.getMain());
+//		TalkPan fl = new TalkPan();
+//		frame.add(fl.getMain());
 		
 //		FairyPan fp = new FairyPan();
 //		frame.add(fp.getMain());
-		
+		new LoveSimulation();
 
 		//여기서 객체 만들면서 추가하면 될듯?
 		//내 생각엔 패널 하나 더 만들어서 이 클래스에선 그 패널 출력만 하고 거기서 바꾸자
