@@ -3,25 +3,19 @@ package namori.love.code;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class SsibalChange extends JFrame {
+public class SsibalChange {
 	
-	protected void change(JPanel pn, JPanel out)
+	protected static void change(JPanel out)
 	{
 //		SsibalMotherless.frame.remove(mainPane);
 //		SsibalExam ex = new SsibalExam(1);
 //		SsibalMotherless.frame.add(ex.getMain());
 //		SsibalMotherless.frame.repaint();
-		this.remove(pn);
-		this.add(out);
-		this.repaint();
-		
-		
-		
+
+		SsibalMotherless.frame.removeAll();
+		SsibalMotherless.frame.add(out);
+		SsibalMotherless.frame.repaint();
 	}
 	
-	protected void first(JPanel panel)
-	{
-		this.add(panel);
-	}
 
 }

@@ -32,10 +32,11 @@ public class SsibalMotherless {
 		frame.setLocation(100, 100);
 		
 		
-
-		CardPanel cp = new CardPanel();
-		frame.add(cp.getCard());
-		
+//
+//		CardPanel cp = new CardPanel();
+//		frame.add(cp.getCard());
+		SsibalFrame sf = new SsibalFrame();
+		frame.setContentPane(sf.getMain());
 		
 //		FrameLayout3 fl = new FrameLayout3();
 //		

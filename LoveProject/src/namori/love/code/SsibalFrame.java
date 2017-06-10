@@ -137,7 +137,23 @@ public class SsibalFrame extends JPanel {
 
 				SetBgr("./pics/namae.png");
 				SetCha(pe.getFileName());
-
+				
+	            String tmp = p.Dialogue();
+	            
+	            if (tmp == null) {
+		               System.out.println("Heeeeee");
+		               ExamPan ep = new ExamPan(1);
+		               SsibalMotherless.frame.getContentPane().removeAll();
+		               SsibalMotherless.frame.setContentPane(ep.getMain());
+		            }
+	            else if(tmp.equals("#"))
+	            	ta.setText(pe.Dialogue());
+	            else
+	                ta.setText(tmp);
+	            
+	            
+	            System.out.println(tmp);
+				
 				
 			}
 		});
