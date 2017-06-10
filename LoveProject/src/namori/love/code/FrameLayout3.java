@@ -115,13 +115,17 @@ public class FrameLayout3 extends JPanel {
 //		
 //	}
 	
-	
 	// 지금은 버튼으로 배경이랑 캐릭터 바꾸는것만 구현함.
 	private void MakeBtn() {
 		JButton nextBtn = new JButton("NEXT");
 
 		nextBtn.setOpaque(true);
 		textPan.add(nextBtn, BorderLayout.EAST);
+		Person p=new hero();
+		p.talking();
+		Person pe=new heroine();
+		pe.talking();
+		
 		nextBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -130,7 +134,23 @@ public class FrameLayout3 extends JPanel {
 
 				SetBgr("./pics/namae.png");
 				SetCha("./pics/karen.png");
-				ta.setText("Welcome to the HELL OOP class by Teemu.");
+				
+	            String tmp = p.Dialogue();
+	            
+	            if (tmp == null) {
+		               System.out.println("Heeeeee");
+		               ExamPan ep = new ExamPan(1);
+		               mainPane.removeAll();
+		               mainPane.repaint();
+		               mainPane.add(ep.getMain());
+		            }
+	            else if(tmp.equals("#"))
+	            	ta.setText(pe.Dialogue());
+	            else
+	                ta.setText(tmp);
+	            
+	            System.out.println(tmp);
+
 				
 /*
  * 규석이의 코드

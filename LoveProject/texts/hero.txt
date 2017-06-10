@@ -11,8 +11,10 @@ I thought it's a difficult problem for her.
 I studied java last year. My grade... oh, I don't want to remind that. Then java class's professor name is Tee... stop it.
 Well, looking at her troubles, I wanted to help her
 "...Can I help you?"
+#
 "Oh, I am a student at Ajou University Software Department. I think I can help you."
 She made a puzzled expression for a moment, but immediately understood the situation and smiled.
+#
 "! Yeah! Okay."
 All right, I tell her that I help you, so I will help her perfectly!
 "Then.. let's solve the first problem."

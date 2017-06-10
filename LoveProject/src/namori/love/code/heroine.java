@@ -14,7 +14,7 @@ public class heroine extends Person{//inheritance ¸¸Á·
 	@Override
 	public void talking() {
 		try {
-			BufferedReader inputFile=new BufferedReader(new FileReader("heroine.txt"));
+			BufferedReader inputFile=new BufferedReader(new FileReader("./texts/heroine.txt"));
 			String str=null;
 			try {
 				while((str=inputFile.readLine())!=null)
