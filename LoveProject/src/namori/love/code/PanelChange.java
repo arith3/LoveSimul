@@ -6,8 +6,9 @@ public class PanelChange {
 
 	protected static void convert(JPanel panel)
 	{
-        LoveFrame.getFrame().getContentPane().removeAll();
+        //LoveFrame.getFrame().getContentPane().removeAll();
         LoveFrame.getFrame().setContentPane(panel);
+        LoveFrame.getFrame().getContentPane().revalidate();
         LoveFrame.getFrame().getContentPane().repaint();
 	}
 }

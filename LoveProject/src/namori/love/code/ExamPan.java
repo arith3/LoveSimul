@@ -26,6 +26,7 @@ public class ExamPan extends MouseAdapter
 	private JPanel chop2; //선택지패널
 	private JPanel chop3; //선택지패널
 	private JPanel chop4; //선택지패널
+	private JPanel faip;
 	private JButton cho1;
 	private JButton cho2;
 	private JButton cho3;
@@ -67,42 +68,45 @@ public class ExamPan extends MouseAdapter
 			btnnum = 3;
 		if (e.getSource().equals(cho4))
 			btnnum = 4;
-		
-		if(e.getSource().equals(btnCallFairy)) {
-			FairyPan fp = new FairyPan();
-			PanelChange.convert(fp.getMain());
-		}
-		
-		if(btnnum == ex.getAnswer())
-		{
+		if (e.getSource().equals(btnCallFairy))
+			btnnum = 5;
+
+		if (btnnum == ex.getAnswer()) {
 			System.out.println("You're right!");
 			result.setForeground(Color.GREEN);
 			result.setText("TRUE!!");
-			
-//			try {
-//				Thread.sleep(1000);
-//			} catch (InterruptedException e1) {
-//				// TODO Auto-generated catch block
-//				e1.printStackTrace();
-//			}
-			
-//			int result = JOptionPane.showConfirmDialog(mainp, "Are you sure you want to exit?", "Exiting", JOptionPane.OK_OPTION);
-//			lp.add(new JPanel(), JOptionPane.showConfirmDialog(mainp, "Are you sure you want to exit?", "Exiting", JOptionPane.OK_OPTION), JLayeredPane.DRAG_LAYER);
-//			if (result == JOptionPane.OK_OPTION) {
-//				System.exit(0);
-//			}
-//			mainp.repaint();
+
+			// try {
+			// Thread.sleep(1000);
+			// } catch (InterruptedException e1) {
+			// // TODO Auto-generated catch block
+			// e1.printStackTrace();
+			// }
+
+			// int result = JOptionPane.showConfirmDialog(mainp, "Are you sure
+			// you want to exit?", "Exiting", JOptionPane.OK_OPTION);
+			// lp.add(new JPanel(), JOptionPane.showConfirmDialog(mainp, "Are
+			// you sure you want to exit?", "Exiting", JOptionPane.OK_OPTION),
+			// JLayeredPane.DRAG_LAYER);
+			// if (result == JOptionPane.OK_OPTION) {
+			// System.exit(0);
+			// }
+			// mainp.repaint();
+
 			TalkPan tp = new TalkPan();
 			PanelChange.convert(tp.getMain());
-		}
-		else
-		{
+//			FairyPan fp = new FairyPan();
+//			PanelChange.convert(fp.getMain());
+		} else if (btnnum == 5) {
+			FairyPan fp = new FairyPan();
+			PanelChange.convert(fp.getMain());
+		} else {
 			System.out.println("You're wrong!");
 			result.setForeground(Color.RED);
 			result.setText("FALSE!!");
 		}
 	}
-	
+
 	private void makePane()
 	{
 		lp = new JLayeredPane();
@@ -111,6 +115,7 @@ public class ExamPan extends MouseAdapter
 		chop2 = new JPanel();
 		chop3 = new JPanel();
 		chop4 = new JPanel();
+		faip = new JPanel();
 		
 		prop.setBounds(400, 100, 800, 80);
 		//prop.setOpaque(false);
@@ -151,6 +156,13 @@ public class ExamPan extends MouseAdapter
 		cho4.setText(ex.getChoice().get(3));
 		chop4.add(cho4, BorderLayout.CENTER);
 		
+		faip.setBounds(15, 15, 90, 25);
+		btnCallFairy = new JButton("Call Fairy!");
+		//btnCallFairy.setBounds(15, 15, 90, 25);
+		btnCallFairy.addMouseListener(this);
+		faip.setLayout(new BorderLayout());
+		faip.add(btnCallFairy, BorderLayout.CENTER);
+		
 		result = new JLabel("");
 		result.setText("Solve it!");
 		result.setFont(new Font("Comic Sans MS", Font.BOLD, 80));
@@ -163,6 +175,7 @@ public class ExamPan extends MouseAdapter
 		lp.add(chop2, JLayeredPane.PALETTE_LAYER);
 		lp.add(chop3, JLayeredPane.PALETTE_LAYER);
 		lp.add(chop4, JLayeredPane.PALETTE_LAYER);
+		lp.add(faip, JLayeredPane.PALETTE_LAYER);
 		lp.add(prop, JLayeredPane.PALETTE_LAYER);
 		lp.setVisible(true);
 		mainp.add(lp);
@@ -183,21 +196,6 @@ public class ExamPan extends MouseAdapter
 		sci.setBounds((Stat.FrameWidth - ChaW) / 8, (Stat.FrameHeight - ChaH), ChaW, ChaH);
 		sci.setOpaque(false);
 		lp.add(sci, JLayeredPane.PALETTE_LAYER);
-		
-		btnCallFairy = new JButton("Call Fairy!");
-		btnCallFairy.addMouseListener(this);
-//		btnCallFairy.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				
-//				FairyPan fp = new FairyPan();
-//				PanelChange.convert(fp.getMain());
-//				
-//				
-//			}
-//		});
-//		//lp.setLayer(btnCallFairy, 400);
-		btnCallFairy.setBounds(15, 15, 90, 25);
-		lp.add(btnCallFairy, JLayeredPane.MODAL_LAYER);
 	}
 	
 	private void SetBgr(String file) {
@@ -212,6 +210,6 @@ public class ExamPan extends MouseAdapter
 		//sbi.repaint();
 		lp.add(sbi, JLayeredPane.DEFAULT_LAYER);
 
-		System.out.println("배경이미지 설정: " + file + sbi.getWidth());
+		//System.out.println("배경이미지 설정: " + file + sbi.getWidth());
 	}
 }
