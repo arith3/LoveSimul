@@ -11,6 +11,13 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
+/*
+ * This class is exam that has constructor need integer.
+ * The integer is number of exam.
+ * Has Exams class what call text by text files.
+ * Coded by namori.
+ */
+
 public class ExamPan extends MouseAdapter
 {
 	private JPanel mainp;
@@ -39,7 +46,6 @@ public class ExamPan extends MouseAdapter
 		makePane();
 		SetBgr("./pics/namae.png");
 		SetCha("./pics/karen.png");
-		//drawBln();
 
 		mainp.setVisible(true);
 	}
@@ -66,6 +72,16 @@ public class ExamPan extends MouseAdapter
 			System.out.println("You're right!");
 			result.setForeground(Color.GREEN);
 			result.setText("TRUE!!");
+			
+//			try {
+//				Thread.sleep(1000);
+//			} catch (InterruptedException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			}
+			
+			TalkPan tp = new TalkPan();
+			PanelChange.convert(tp.getMain());
 		}
 		else
 		{
@@ -73,7 +89,6 @@ public class ExamPan extends MouseAdapter
 			result.setForeground(Color.RED);
 			result.setText("FALSE!!");
 		}
-
 	}
 	
 	private void makePane()
@@ -155,7 +170,6 @@ public class ExamPan extends MouseAdapter
 
 		sci.setBounds((Stat.FrameWidth - ChaW) / 8, (Stat.FrameHeight - ChaH), ChaW, ChaH);
 		sci.setOpaque(false);
-		//sci.repaint();
 		lp.add(sci, JLayeredPane.PALETTE_LAYER);
 	}
 	
@@ -173,22 +187,4 @@ public class ExamPan extends MouseAdapter
 
 		System.out.println("배경이미지 설정: " + file + sbi.getWidth());
 	}
-	
-//	private void drawBln() {
-//		SetChaImg sci2 = null;
-//		try {
-//			sci2 = new SetChaImg("prob.png");
-//		} catch (IOException e1) {
-//			e1.printStackTrace();
-//		}
-//		int ChaH = sci2.getImg().getHeight(null);
-//		System.out.println(ChaH);
-//		int ChaW = sci2.getImg().getWidth(null);
-//		System.out.println(ChaW);
-//
-//		sci2.setBounds(0,0, ChaW, ChaH);
-//		sci2.setOpaque(false);
-//		//sci.repaint();
-//		lp.add(sci2, JLayeredPane.PALETTE_LAYER);
-//	}
 }

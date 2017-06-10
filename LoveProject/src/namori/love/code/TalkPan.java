@@ -14,9 +14,14 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 
-public class FrameLayout3 extends JPanel {
+/*
+ * This class is mainly looked talking area.
+ * Separate each image call, include layer.
+ * Coded by namori.
+ */
 
-	private static final long serialVersionUID = 1L;
+public class TalkPan {
+
 	private SetBgrImg sbi;
 	private SetChaImg sci;
 	private JPanel mainPane;
@@ -30,7 +35,7 @@ public class FrameLayout3 extends JPanel {
 		return mainPane;
 	}
 
-	public FrameLayout3() {
+	public TalkPan() {
 		mainPane = new JPanel();
 		lp = new JLayeredPane();
 		LayoutSet();
@@ -143,9 +148,7 @@ public class FrameLayout3 extends JPanel {
 	            if (tmp == null) {
 		               System.out.println("Heeeeee");
 		               ExamPan ep = new ExamPan(1);
-		               mainPane.removeAll();
-		               mainPane.repaint();
-		               mainPane.add(ep.getMain());
+		               PanelChange.convert(ep.getMain());
 		            }
 	            else if(tmp.equals("#"))
 	            	ta.setText(pe.Dialogue());

@@ -14,9 +14,8 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 
-public class SsibalFrame extends JPanel {
+public class SsibalFrame {
 
-	private static final long serialVersionUID = 1L;
 	private SetBgrImg sbi;
 	private SetChaImg sci;
 	private JPanel mainPane;

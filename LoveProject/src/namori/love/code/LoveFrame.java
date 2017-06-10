@@ -3,10 +3,15 @@ package namori.love.code;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 
-public class LoveFrame extends JFrame {
+/*
+ * This class is main.
+ * Make a static frame and thread.
+ * Coded by namori.
+ */
 
-	private static final long serialVersionUID = 1L;
-	//protected static int page;
+public class LoveFrame {
+
+	private static JFrame frame;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -23,7 +28,7 @@ public class LoveFrame extends JFrame {
 	
 	private static void arisuFrame()
 	{
-		JFrame frame = new JFrame("¢¾ Love Simulator ¢¾");
+		frame = new JFrame("¢¾ Love Simulator ¢¾");
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(Stat.FrameWidth, Stat.FrameHeight);
@@ -31,7 +36,7 @@ public class LoveFrame extends JFrame {
 		frame.setLocation(100, 100);
 		
 		
-		FrameLayout3 fl = new FrameLayout3();
+		TalkPan fl = new TalkPan();
 		
 		frame.add(fl.getMain());
 //		
@@ -47,5 +52,7 @@ public class LoveFrame extends JFrame {
 		frame.setVisible(true);
 	}
 	
-	
+	protected static JFrame getFrame() {
+		return frame;
+	}
 }

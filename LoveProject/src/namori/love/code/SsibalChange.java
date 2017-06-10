@@ -1,6 +1,5 @@
 package namori.love.code;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class SsibalChange {
