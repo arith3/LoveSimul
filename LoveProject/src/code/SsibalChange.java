@@ -11,9 +11,9 @@ public class SsibalChange {
 //		SsibalMotherless.frame.add(ex.getMain());
 //		SsibalMotherless.frame.repaint();
 
-		SsibalMotherless.frame.removeAll();
-		SsibalMotherless.frame.add(out);
-		SsibalMotherless.frame.repaint();
+		SsibalMotherless.getFrame().removeAll();
+		SsibalMotherless.getFrame().add(out);
+		SsibalMotherless.getFrame().repaint();
 	}
 	
 

@@ -142,8 +142,8 @@ public class SsibalFrame {
 	            if (tmp == null) {
 		               System.out.println("Heeeeee");
 		               ExamPan ep = new ExamPan(1);
-		               SsibalMotherless.frame.getContentPane().removeAll();
-		               SsibalMotherless.frame.setContentPane(ep.getMain());
+		               SsibalMotherless.getFrame().getContentPane().removeAll();
+		               SsibalMotherless.getFrame().setContentPane(ep.getMain());
 		            }
 	            else if(tmp.equals("#"))
 	            	ta.setText(pe.Dialogue());
