@@ -23,3 +23,28 @@ Heap
 Class
 Method
 Stack
+What is not a feature of the interface?
+You can create a constructor
+You can not create object
+All methods are abstract methods
+You can not have an instance variable
+What is not an interactive component in Swing?
+Button
+Text field
+Label
+Frame
+What is the default layoutmaneger of JFrame?
+Grid layout
+Border layout
+Flow layout
+Box layout
+What is not a Runtime exception?
+NullPointerException
+ClassCastException
+IOException
+IndexOutOfBoundsException
+What is a Override example of public void OOP(int x)?
+public void OOP(int y)
+private void OOP(int x)
+public void OOP()
+public int OOP(int y)
