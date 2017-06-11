@@ -11,7 +11,7 @@ public class PanelChange {
 	
 	protected static void convert(JPanel panel)
 	{
-		array.add(0, (JPanel) LoveFrame.getFrame().getContentPane());
+		array.add(cnt, (JPanel) LoveFrame.getFrame().getContentPane());
 		cnt++;
         LoveFrame.getFrame().setContentPane(panel);
         LoveFrame.getFrame().getContentPane().revalidate();
