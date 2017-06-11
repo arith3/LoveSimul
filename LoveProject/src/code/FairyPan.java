@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLayeredPane;
@@ -23,6 +24,9 @@ public class FairyPan {
 	private JTextArea ta;
 	private int chaCnt;
 	private int bgrCnt;
+	private ArrayList<String> hint;
+	public static int hintnum = 0;
+	public static boolean flag=false;
 
 	public JPanel getMain() {
 		return mainPane;
@@ -100,28 +104,43 @@ public class FairyPan {
 		textPan.setBackground(Color.BLACK);
 	}
 
+	private String dhint() {
+		return hint.get(hintnum++);
+	}
+
 	private void MakeBtn() {
 		JButton nextBtn = new JButton("YES!");
 		nextBtn.setOpaque(true);
 		textPan.add(nextBtn, BorderLayout.EAST);
+		Hint h = new Hint();
+		h.getDialogue();
+		hint = h.getHint();
+		
 
 		nextBtn.addActionListener(new ActionListener() {
-			int btncounter = 0;
-
 			public void actionPerformed(ActionEvent e) {
-
-				System.out.println("Change Will be soon");
-				if (btncounter == 0) {
+				hintnum=0;
+				if(flag == false)
+				{
+					String tmp="";
+					
+					for(int i=0;i<Hint.hintcnt;i++)
+					{
+						tmp += "\n"+dhint();
+					}
+					
 					ta.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
-					ta.setText("Hints~~~~~~~~~~~~~~~~~~~~~~~~");
+					ta.setText(tmp);
 					nextBtn.setText("END");
-				} else {
-					//System.exit(0);
+					flag = true;
+				}
+				else	
+				{
+					flag = false;
 					PanelChange.back();
 				}
-				btncounter++;
-			}
-		});
-	}
-
+					
+		}
+	});
+}
 }

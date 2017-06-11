@@ -137,10 +137,15 @@ public class TalkPan {
 				
 	            String tmp = p.Dialogue();
 	            
-	            if (tmp == null) {
-		               System.out.println("Heeeeee");
-		               ExamPan ep = new ExamPan(1);
+	            if (tmp.equals("@")) {
+		               ExamPan ep = new ExamPan(LoveFrame.getPronum());
+		               LoveFrame.setPronum(LoveFrame.getPronum()+1);
 		               PanelChange.convert(ep.getMain());
+		               tmp = p.Dialogue();
+		               if(tmp.equals("#"))
+			            	ta.setText(pe.Dialogue());
+		               else
+			                ta.setText(tmp);
 		               //이 뒤에 시험 다음 대사로 넘어가게 코딩해라
 		            }
 	            else if(tmp.equals("#"))

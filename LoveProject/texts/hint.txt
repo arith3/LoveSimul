@@ -1,0 +1,89 @@
+1. Java¡¯s advantage : Friendly syntax, Object-orientaion, Automatic memory management,
+Ease of code reuse, Integrated security mechanisms, Easy networking, Open and free, 
+Can be used in various OS
+
+2. Variable
+Instance variables (non-static fields): declared inside class but outside methods without the static modifier
+Class variables (static fields): declared inside class but outside methods with the static modifier
+Local variables: declared inside methods. These variables are not visible outside the method in which they are declared
+Parameters: method (and constructor) parameters. These are only usable inside the method/constructor for which they are defined
+Base types: int, long, boolean, etc.
+Boolean : true or false
+Char : 16-bit Unicode character
+Short : 16-bit signed two¡¯s complement integer
+Int : 32-bit signed two¡¯s complement integer
+Long : 64-bit signed two¡¯s complement integer
+Float : 32-bit floating-point number
+Double : : 64-bit floating-point number
+
+3. Encapsulation
+Encapsulation means that we hide instance variables (i.e. the data) and provide methods for accessing and changing them (i.e. getters and setters).
+Getters and setters are methods for retrieving (getter) and changing (setter) values of instance variables
+mark all instance variables private so they are well hidden
+mark getters and setters public so they can be accessed by anyone (in some cases you might want to restrict this)
+Add guardians to setters (if needed)
+
+4. Access Modifier
+public : Anyone can access
+protected : Only method of a class in the same package or of a subclass can access
+private : Only methods of the same class can access
+static : A class variable which is associated with a class but not with an object (all objects share the value of the variable)
+final : A variable that must be assigned an initial value and then can never be changed
+
+5. Heap
+Objects live in a garbage collectable heap
+Book b = new Book();
+Book c = new Book();
+These reference variables refer to two Book objects. The Book objects are stored on the heap
+(When the garbage collector performs a collection, it checks for objects in the managed heap that are no longer being used by the application and performs the necessary operations to reclaim their memory)
+
+6. Interface
+Interface is like abstract class, except for one thing: All methods are abstract
+A class that implements (another Java keyword) an interface, must override ALL of the interface's methods
+Interface can contain any number of methods
+Interface is written in a *.java file
+Interface file is compiled into a *.class file (bytecode)
+Interface can belong to a package
+Interface does not have a constructor
+You cannot create a new object from an interface
+All interface methods are abstract
+Interface is not extended by a class
+Interface cannot have instance variables
+
+7. Swing components
+Component is a more correct term for a Swing widget
+There are two kinds of Swing components:
+Container components that work on the background and contain other components.
+Examples: frames and panels
+Interactive components are visible widgets that the user manipulates.
+Examples: buttons, text fields, comboboxes, labels
+
+8. Layout managers
+Layout managers are used with container components
+A layout manager controls the size and the location of the components (children) inside the container component (parent)
+BorderLayout : 
+-Divides container into five regions
+-One component per region
+FlowLayout : 
+-JPanel's default layout manager
+-Each child component gets its preferred size
+-Child components are placed in the same order in which they are added
+BoxLayout : 
+-Each child component gets its preferred size
+-Difference to FlowLayout: stacks child components one-by-one vertically or horizontally
+
+9. Runtime exception
+Most exceptions are checked by the compiler and they must be caught
+Runtime exceptions are not checked by the compiler
+NullPointerException: when using a null object reference
+ClassCastException: when casting an object to wrong type
+IndexOutOfBoundsException: when using an invalid array index
+NumberFormatException: when parseInt(), parseDouble() etc method argument is not a number
+
+10. Override
+re-write a method that is inherited from superclass
+Name of the method must be the same than in superclass
+Parameters and return type must be the same
+The method cannot be less accessible
+should use the @Override annotation
+

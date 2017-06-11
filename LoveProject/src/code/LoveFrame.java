@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 public class LoveFrame {
 
 	private static JFrame frame;
+	private static int pronum =1;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -53,5 +54,13 @@ public class LoveFrame {
 	
 	protected static JFrame getFrame() {
 		return frame;
+	}
+
+	public static int getPronum() {
+		return pronum;
+	}
+
+	public static void setPronum(int pronum) {
+		LoveFrame.pronum = pronum;
 	}
 }

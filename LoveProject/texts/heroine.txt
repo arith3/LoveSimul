@@ -1,2 +1,16 @@
 "...what?"
 "Then, please"
+Oh, Why is this the correct answer?
+I know encapsulation. It has getter and setter, right?
+scalable  access modifier? Than, protected and privated are not scalable?
+a-ha?
+umm.. It's too hard...
+what is that swing?
+Whose lecture?
+runtime exception? There are something exception in Java?
+FileI/O?
+I'm getting more and more interested in java.
+Why other choices are wrong?
+That's why public void OOP(int x)'s Override example is public void OOP(int y).
+Actually... I don't understand lots of problem.
+No! umm.... So... Can you help me in the future?

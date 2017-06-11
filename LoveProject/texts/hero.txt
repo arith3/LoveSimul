@@ -18,3 +18,54 @@ She made a puzzled expression for a moment, but immediately understood the situa
 "! Yeah! Okay."
 All right, I tell her that I help you, so I will help her perfectly!
 "Then.. let's solve the first problem."
+@
+#
+Java is not used address. So, there is not pointer in java.
+@
+arguments are object. Object is very difficult concept. It make Class to instanciate.
+@
+#
+Yes, encapsulation increases the stability of your code by making it.
+@
+#
+Yes, protected is that only methods of a class in the same package or of a subclass can access.
+ and private is that only methods of the same class can access.
+#
+@
+heap is an area of memory used for dynamic memory allocation. Objects live in a garbage collectable heap.
+@
+Suppose that USB prot on your computer is the real world's interface. The devices that can be connected to the USB port are hard disk, memory stick, digital camera and so on.
+You can make any device if you know the specifications of the USB port. Also, the computer only provides a USB port and you do not have to worry about which device is made.
+This is the core of the interface.
+#
+@
+#
+swing is java's GUI. And component is a more correct term for a Swing widget.
+There are two kinds of Swing components. Container components or Interactive components.
+Container components work on the background and contain other components, for example, frames and panels.
+Interactive components are visible widgets that the user manipulates like buttons, textfield, combobox, label.
+@
+Layout managers are used with container components.
+A layout manager controls the size and the location of the components (children) inside the container component (parent). If you want to learn about layout manager more and more, apply java lectures.
+#
+Thee...ops!
+@
+#
+In Java, methods use exceptions to tell the caller that something bad (an exceptional situation) can happen.
+We say that such a method throws an exception. Runtime exception is a kind of exception.
+Runtime exceptions inherit from RuntimeException or Error. For example, NullPointerException, ClassCastException, IndexOutOfBoundsException, NumberFormatException.
+ IOException is used in FileI/O.
+#
+umm.. If you study java, you can take this part.
+#
+that's great.
+@
+#
+If the overriding method is less accessible than the previous method, an error occurs. And parameters and return type must be the same. Name of the method must be the same than in superclass, too.
+#
+Yes, do you understand?
+#
+Oh.. sorry. I've never taught java before...
+#
+! Yes! Of course!
+#

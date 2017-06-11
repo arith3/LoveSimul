@@ -76,6 +76,8 @@ public class ExamPan extends MouseAdapter
 			System.out.println("You're right!");
 			result.setForeground(Color.GREEN);
 			result.setText("TRUE!!");
+			
+			FairyPan.hintnum++;
 
 			// try {
 			// Thread.sleep(1000);
