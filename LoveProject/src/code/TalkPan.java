@@ -123,6 +123,7 @@ public class TalkPan {
 		textPan.add(nextBtn, BorderLayout.EAST);
 		
 		ArrayList<String> back=new ArrayList<String>();
+		
 		back.add("./pics/School.jpg");
 		back.add("./pics/bench.jpg");
 		back.add("./pics/cafe.jpg");
