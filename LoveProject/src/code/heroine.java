@@ -7,6 +7,16 @@ import java.io.IOException;
 
 public class heroine extends Person{//inheritance ¸¸Á·
 
+	private String fileName;
+	
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
 	static String talk[]=new String[100];
 	int heroinecount=0;
 	int count;

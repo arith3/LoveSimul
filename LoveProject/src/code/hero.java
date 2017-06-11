@@ -7,6 +7,7 @@ import java.io.IOException;
 
 public class hero extends Person{//inheritance 만족
 
+	private String fileName;
 	static String talk[]=new String[100];
 	int herocount=0;
 	int count=0;
@@ -28,6 +29,14 @@ public class hero extends Person{//inheritance 만족
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 	@Override

@@ -12,6 +12,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 /*
@@ -30,6 +31,7 @@ public class TalkPan {
 	private JTextArea ta;
 	private int chaCnt;
 	private int bgrCnt;
+	public int count=0;
 
 	public JPanel getMain() {
 		return mainPane;
@@ -119,13 +121,29 @@ public class TalkPan {
 
 		nextBtn.setOpaque(true);
 		textPan.add(nextBtn, BorderLayout.EAST);
+		
+		ArrayList<String> back=new ArrayList<String>();
+		back.add("./pics/School.jpg");
+		back.add("./pics/bench.jpg");
+		back.add("./pics/cafe.jpg");
+		back.add("./pics/fbg.png");
+		back.add("./pics/Library.jpg");
+		back.add("./pics/place.png");
+		back.add("./pics/Library.jpg");
+		back.add("./pics/bench.jpg");
+		back.add("./pics/Library.jpg");
+		back.add("./pics/School.jpg");
+		back.add("./pics/cafe.jpg");
+		
 		Person p=new hero();
 		p.talking();
 		//남자파일 이름p.setFileName(");
-		p.setFileName("./pics/karen.png");
+		p.setFileName("./pics/konan.png");
 		Person pe=new heroine();
 		pe.talking();
 		pe.setFileName("./pics/karen2.png");
+		
+		SetBgr("./pics/namae.png");
 		
 		nextBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -133,8 +151,8 @@ public class TalkPan {
 				// contentPane.setVisible(false); //다음 프레임으로 넘어가기 위한 코드
 				System.out.println("Change Will be soon");
 
-				SetBgr("./pics/namae.png");
-				SetCha(pe.getFileName());
+				SetCha(p.getFileName());
+				System.out.println(p.getFileName());
 				
 	            String tmp = p.Dialogue();
 	            
@@ -143,14 +161,18 @@ public class TalkPan {
 		               Stat.setPronum(Stat.getPronum()+1);
 		               PanelChange.convert(ep.getMain());
 		               tmp = p.Dialogue();
-		               if(tmp.equals("#"))
+		               if(tmp.equals("#")){
+		   				    SetCha(pe.getFileName());
 			            	ta.setText(pe.Dialogue());
+		               }
 		               else
 			                ta.setText(tmp);
-		               //이 뒤에 시험 다음 대사로 넘어가게 코딩해라
+					   SetBgr(back.get(count++));
 		            }
-	            else if(tmp.equals("#"))
+	            else if(tmp.equals("#")){
+   				    SetCha(pe.getFileName());
 	            	ta.setText(pe.Dialogue());
+               }
 	            else
 	                ta.setText(tmp);
  
