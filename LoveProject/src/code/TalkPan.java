@@ -127,7 +127,7 @@ public class TalkPan {
 		back.add("./pics/School.jpg");
 		back.add("./pics/bench.jpg");
 		back.add("./pics/cafe.jpg");
-		back.add("./pics/fbg.png");
+		//back.add("./pics/fbg.png");
 		back.add("./pics/Library.jpg");
 		back.add("./pics/place.png");
 		back.add("./pics/Library.jpg");
