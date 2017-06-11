@@ -61,14 +61,22 @@ public class ExamPan extends MouseAdapter
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		int btnnum = 0;
-		if (e.getSource().equals(cho1))
+		if (e.getSource().equals(cho1)) {
 			btnnum = 1;
-		if (e.getSource().equals(cho2))
+			cho1.setEnabled(false);
+		}
+		if (e.getSource().equals(cho2)) {
 			btnnum = 2;
-		if (e.getSource().equals(cho3))
+			cho2.setEnabled(false);
+		}
+		if (e.getSource().equals(cho3)) {
 			btnnum = 3;
-		if (e.getSource().equals(cho4))
+			cho3.setEnabled(false);
+		}
+		if (e.getSource().equals(cho4)) {
 			btnnum = 4;
+			cho4.setEnabled(false);
+		}
 		if (e.getSource().equals(btnCallFairy))
 			btnnum = 5;
 
@@ -108,6 +116,7 @@ public class ExamPan extends MouseAdapter
 			fairycalled = true;
 		} else {
 			System.out.println("You're wrong!");
+			Stat.minusScore();
 			result.setForeground(Color.RED);
 			result.setText("FALSE!!");
 		}
@@ -123,10 +132,10 @@ public class ExamPan extends MouseAdapter
 		chop4 = new JPanel();
 		faip = new JPanel();
 		
-		prop.setBounds(300, 100, 900, 80);
+		prop.setBounds(250, 100, 950, 60);
 		//prop.setOpaque(false);
 		JLabel lb = new JLabel();
-		lb.setFont(new Font("Malgun Gothic", Font.BOLD, 32));
+		lb.setFont(new Font("Verdana", Font.BOLD, 36));
 		lb.setText(ex.getProblem());
 		prop.add(lb);
 		

@@ -44,7 +44,7 @@ public class TalkPan {
 	private void LayoutSet() {
 		mainPane.setLayout(null);
 
-		SetBgr("./pics/abcd.jpg"); //이건 나중에 지하 클래스에서 올리게 하자
+		SetBgr("./pics/abcd.jpg"); //이거 초기값을 컨스트럭터에서 받게 할까??
 		SetCha("./pics/fairy.png");
 		
 		SetText();
@@ -91,7 +91,7 @@ public class TalkPan {
 		int ChaW = sci.getImg().getWidth(null);
 		System.out.println(ChaW);
 
-		sci.setBounds((Stat.FrameWidth - ChaW) / 2, (Stat.FrameHeight - ChaH) / 2, ChaW, ChaH);
+		sci.setBounds((Stat.FrameWidth - ChaW) / 2, (Stat.FrameHeight - ChaH) / 3, ChaW, ChaH);
 		sci.setOpaque(false);
 		//sci.repaint();
 		lp.add(sci, JLayeredPane.PALETTE_LAYER);
@@ -125,7 +125,7 @@ public class TalkPan {
 		p.setFileName("./pics/karen.png");
 		Person pe=new heroine();
 		pe.talking();
-		pe.setFileName("./pics/karen.png");
+		pe.setFileName("./pics/karen2.png");
 		
 		nextBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
