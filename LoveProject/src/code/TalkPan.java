@@ -45,7 +45,7 @@ public class TalkPan {
 	private void LayoutSet() {
 		mainPane.setLayout(null);
 
-		SetBgr("./pics/abcd.jpg"); //이거 초기값을 컨스트럭터에서 받게 할까??
+		SetBgr("./pics/cafe.jpg"); //이거 초기값을 컨스트럭터에서 받게 할까??
 		SetCha("./pics/fairy.png");
 		
 		SetText();
@@ -124,8 +124,8 @@ public class TalkPan {
 		
 		back.add("./pics/School.jpg");
 		back.add("./pics/bench.jpg");
-		back.add("./pics/cafe.jpg");
-		//back.add("./pics/fbg.png");
+		back.add("./pics/sunyu.jpg");
+		back.add("./pics/fleet.jpg");
 		back.add("./pics/Library.jpg");
 		back.add("./pics/place.png");
 		back.add("./pics/Library.jpg");
@@ -142,7 +142,7 @@ public class TalkPan {
 		pe.talking();
 		pe.setFileName("./pics/karen2.png");
 		
-		SetBgr("./pics/namae.png");
+		//SetBgr("./pics/namae.png");
 		
 		nextBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
