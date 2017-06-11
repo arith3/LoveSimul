@@ -9,7 +9,7 @@ Class variables
 Parameters
 Arguments
 What is encapsulation?
-Increase the stability of your code by making it impossible to access instance variables from outside
+make impossible to access instance variables from outside
 Prevent errors due to duplicate class names
 It improves the flexibility of the code
 It improves the accessibility of the code
@@ -43,7 +43,7 @@ NullPointerException
 ClassCastException
 IOException
 IndexOutOfBoundsException
-What is a Override example of public void OOP(int x)?
+Override example of public void OOP(int x)?
 public void OOP(int y)
 private void OOP(int x)
 public void OOP()
