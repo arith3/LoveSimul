@@ -123,16 +123,16 @@ public class ExamPan extends MouseAdapter
 		chop4 = new JPanel();
 		faip = new JPanel();
 		
-		prop.setBounds(400, 100, 800, 80);
+		prop.setBounds(300, 100, 900, 80);
 		//prop.setOpaque(false);
 		JLabel lb = new JLabel();
-		lb.setFont(new Font("Malgun Gothic", Font.BOLD, 40));
+		lb.setFont(new Font("Malgun Gothic", Font.BOLD, 32));
 		lb.setText(ex.getProblem());
 		prop.add(lb);
 		
 		chop1.setBounds(600, 230, 600, 80);
 		cho1 = new JButton();
-		cho1.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
+		cho1.setFont(new Font("Comic Sans MS", Font.BOLD, 26));
 		cho1.addMouseListener(this);
 		chop1.setLayout(new BorderLayout());
 		cho1.setText(ex.getChoice().get(0));
@@ -140,7 +140,7 @@ public class ExamPan extends MouseAdapter
 		
 		chop2.setBounds(600, 340, 600, 80);
 		cho2 = new JButton();
-		cho2.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
+		cho2.setFont(new Font("Comic Sans MS", Font.BOLD, 26));
 		cho2.addMouseListener(this);
 		chop2.setLayout(new BorderLayout());
 		cho2.setText(ex.getChoice().get(1));
@@ -148,7 +148,7 @@ public class ExamPan extends MouseAdapter
 		
 		chop3.setBounds(600, 450, 600, 80);
 		cho3 = new JButton();
-		cho3.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
+		cho3.setFont(new Font("Comic Sans MS", Font.BOLD, 26));
 		cho3.addMouseListener(this);
 		chop3.setLayout(new BorderLayout());
 		cho3.setText(ex.getChoice().get(2));
@@ -156,7 +156,7 @@ public class ExamPan extends MouseAdapter
 		
 		chop4.setBounds(600, 560, 600, 80);
 		cho4 = new JButton();
-		cho4.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
+		cho4.setFont(new Font("Comic Sans MS", Font.BOLD, 26));
 		cho4.addMouseListener(this);
 		chop4.setLayout(new BorderLayout());
 		cho4.setText(ex.getChoice().get(3));

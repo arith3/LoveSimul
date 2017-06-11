@@ -102,9 +102,10 @@ public class TalkPan {
 		textPan = new JPanel();
 		textPan.setLayout(new BorderLayout());
 		ta = new JTextArea();
+		ta.setEditable(false);
 		ta.setLineWrap(true);
 		ta.setWrapStyleWord(true);
-		ta.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
+		ta.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
 		ta.setText("Hello my name is Fairy. Shall we learning about JAVA?");
 		JScrollPane sp = new JScrollPane(ta);
 		textPan.add(sp);
@@ -138,8 +139,8 @@ public class TalkPan {
 	            String tmp = p.Dialogue();
 	            
 	            if (tmp.equals("@")) {
-		               ExamPan ep = new ExamPan(LoveFrame.getPronum());
-		               LoveFrame.setPronum(LoveFrame.getPronum()+1);
+		               ExamPan ep = new ExamPan(Stat.getPronum());
+		               Stat.setPronum(Stat.getPronum()+1);
 		               PanelChange.convert(ep.getMain());
 		               tmp = p.Dialogue();
 		               if(tmp.equals("#"))

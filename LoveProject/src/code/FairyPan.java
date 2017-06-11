@@ -93,6 +93,7 @@ public class FairyPan {
 		textPan = new JPanel();
 		textPan.setLayout(new BorderLayout());
 		ta = new JTextArea();
+		ta.setEditable(false);
 		ta.setLineWrap(true);
 		ta.setWrapStyleWord(true);
 		ta.setFont(new Font("Comic Sans MS", Font.BOLD, 48));
