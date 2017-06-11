@@ -63,4 +63,5 @@ public class LoveFrame {
 	public static void setPronum(int pronum) {
 		LoveFrame.pronum = pronum;
 	}
+	
 }
