@@ -36,9 +36,9 @@ public class LoveFrame {
 		frame.setLocation(100, 100);
 		
 		
-		TalkPan fl = new TalkPan();
-		frame.add(fl.getMain());
-		
+//		TalkPan fl = new TalkPan();
+//		frame.add(fl.getMain());
+		new LoveSimulation();
 //		FairyPan fp = new FairyPan();
 //		frame.add(fp.getMain());
 		
