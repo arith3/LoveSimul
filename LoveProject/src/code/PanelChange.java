@@ -16,7 +16,7 @@ public class PanelChange {
         LoveFrame.getFrame().setContentPane(panel);
         LoveFrame.getFrame().getContentPane().revalidate();
         LoveFrame.getFrame().getContentPane().repaint();
-        System.out.println(array.size());
+        //System.out.println(array.size());
 	}
 	
 	protected static void back()

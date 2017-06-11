@@ -3,10 +3,7 @@ package code;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
-
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 
 public class LoveSimulation extends JPanel{
 	
@@ -27,11 +24,7 @@ public class LoveSimulation extends JPanel{
 	private ImageIcon startButtonEnteredImage = new ImageIcon(LoveFrame.class.getResource("../images/startButtonEntered.png"));
 	private JButton startButton = new JButton(startButtonBasicImage);
 	private JButton quitButton = new JButton(quitButtonBasicImage);
-	
-    private int pointX , pointY;
-    
-    
-    
+
     
     
     public LoveSimulation()

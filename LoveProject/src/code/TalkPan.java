@@ -30,7 +30,7 @@ public class TalkPan {
 	private JTextArea ta;
 	private int chaCnt;
 	private int bgrCnt;
-	public int count=0;
+	public int count = 0;
 
 	public JPanel getMain() {
 		return mainPane;
@@ -45,9 +45,9 @@ public class TalkPan {
 	private void LayoutSet() {
 		mainPane.setLayout(null);
 
-		SetBgr("./pics/cafe.jpg"); //이거 초기값을 컨스트럭터에서 받게 할까??
+		SetBgr("./pics/cafe.jpg"); // 이거 초기값을 컨스트럭터에서 받게 할까??
 		SetCha("./pics/fairy.png");
-		
+
 		SetText();
 		MakeBtn();
 		lp.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
@@ -68,12 +68,12 @@ public class TalkPan {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		
+
 		sbi.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
-		//sbi.repaint();
+		// sbi.repaint();
 		lp.add(sbi, JLayeredPane.DEFAULT_LAYER);
 
-		System.out.println("배경이미지 설정: " + file + sbi.getWidth());
+		//System.out.println("배경이미지 설정: " + file + sbi.getWidth());
 		bgrCnt++;
 	}
 
@@ -88,13 +88,13 @@ public class TalkPan {
 			e1.printStackTrace();
 		}
 		int ChaH = sci.getImg().getHeight(null);
-		System.out.println(ChaH);
+		//System.out.println(ChaH);
 		int ChaW = sci.getImg().getWidth(null);
-		System.out.println(ChaW);
+		//System.out.println(ChaW);
 
 		sci.setBounds((Stat.FrameWidth - ChaW) / 2, (Stat.FrameHeight - ChaH) / 3, ChaW, ChaH);
 		sci.setOpaque(false);
-		//sci.repaint();
+		// sci.repaint();
 		lp.add(sci, JLayeredPane.PALETTE_LAYER);
 		chaCnt++;
 	}
@@ -107,7 +107,7 @@ public class TalkPan {
 		ta.setLineWrap(true);
 		ta.setWrapStyleWord(true);
 		ta.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
-		ta.setText("Hello my name is Fairy. Shall we learning about JAVA?");
+		ta.setText("Hello my name is Fairy.\nDo you know how to PLAY?\nPress NEXT button rightside.");
 		JScrollPane sp = new JScrollPane(ta);
 		textPan.add(sp);
 		textPan.setOpaque(true);
@@ -119,9 +119,9 @@ public class TalkPan {
 
 		nextBtn.setOpaque(true);
 		textPan.add(nextBtn, BorderLayout.EAST);
-		
-		ArrayList<String> back=new ArrayList<String>();
-		
+
+		ArrayList<String> back = new ArrayList<String>();
+
 		back.add("./pics/School.jpg");
 		back.add("./pics/bench.jpg");
 		back.add("./pics/sunyu.jpg");
@@ -133,50 +133,60 @@ public class TalkPan {
 		back.add("./pics/Library.jpg");
 		back.add("./pics/School.jpg");
 		back.add("./pics/cafe.jpg");
-		
-		Person p=new hero();
+
+		Person p = new hero();
 		p.talking();
-		//남자파일 이름p.setFileName(");
+		// 남자파일 이름p.setFileName(");
 		p.setFileName("./pics/konan.png");
-		Person pe=new heroine();
+		Person pe = new heroine();
 		pe.talking();
 		pe.setFileName("./pics/karen2.png");
-		
-		//SetBgr("./pics/namae.png");
-		
+
+		// SetBgr("./pics/namae.png");
+
 		nextBtn.addActionListener(new ActionListener() {
+			int asdf = 0;
 			public void actionPerformed(ActionEvent e) {
 
 				// contentPane.setVisible(false); //다음 프레임으로 넘어가기 위한 코드
-				System.out.println("Change Will be soon");
+				//System.out.println("Change Will be soon");
 
 				SetCha(p.getFileName());
-				System.out.println(p.getFileName());
-				
-	            String tmp = p.Dialogue();
-	            
-	            if (tmp.equals("@")) {
-		               ExamPan ep = new ExamPan(Stat.getPronum());
-		               Stat.setPronum(Stat.getPronum()+1);
-		               PanelChange.convert(ep.getMain());
-		               tmp = p.Dialogue();
-		               if(tmp.equals("#")){
-		   				    SetCha(pe.getFileName());
-			            	ta.setText(pe.Dialogue());
-		               }
-		               else
-			                ta.setText(tmp);
-					   SetBgr(back.get(count++));
-		            }
-	            else if(tmp.equals("#")){
-   				    SetCha(pe.getFileName());
-	            	ta.setText(pe.Dialogue());
-               }
-	            else
-	                ta.setText(tmp);
- 
-	            System.out.println(tmp);
-				
+				//System.out.println(p.getFileName());
+
+				String tmp = p.Dialogue();
+if(tmp != null) {
+				if (tmp.equals("@")) {
+					ExamPan ep = new ExamPan(Stat.getPronum());
+					Stat.setPronum(Stat.getPronum() + 1);
+					PanelChange.convert(ep.getMain());
+					tmp = p.Dialogue();
+					if (tmp.equals("#")) {
+						SetCha(pe.getFileName());
+						ta.setText(pe.Dialogue());
+					} else
+						ta.setText(tmp);
+					SetBgr(back.get(count++));
+				} else if (tmp.equals("#")) {
+					SetCha(pe.getFileName());
+					ta.setText(pe.Dialogue());
+				} else
+					ta.setText(tmp);
+}
+else {
+	System.out.println("EALJKSDHKJASDHLKAJSHLKJASHFLKJASF");
+	ta.setText("You studied very hard.\nHow about coding yourself?");
+	nextBtn.setText("Sure!!");
+	asdf++;
+	if(asdf != 0)
+	{
+		Coding co = new Coding();
+		PanelChange.convert(co.getMain());
+	}
+	
+}
+				//System.out.println(tmp);
+
 			}
 		});
 	}

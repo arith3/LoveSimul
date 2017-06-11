@@ -15,7 +15,7 @@ public class SetBgrImg extends JPanel {
 	public SetBgrImg(String filename) throws IOException
 	{
 		img = ImageIO.read(new File(filename));
-		System.out.println("불러온 이미지: "+img.getWidth(null));
+		//System.out.println("불러온 이미지: "+img.getWidth(null));
 	}
 	
 	@Override

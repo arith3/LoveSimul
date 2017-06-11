@@ -1,6 +1,5 @@
 package code;
 
-import java.awt.Font;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -14,7 +13,7 @@ public class Hint {
 			BufferedReader br = new BufferedReader(new FileReader("./texts/hint.txt"));
 
 			// FileReader("Problem.txt"));
-			for (int i = 0; true; i++) {
+			while(true) {
 				String line = br.readLine();
 				if (line == null)
 					break;

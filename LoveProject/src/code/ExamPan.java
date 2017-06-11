@@ -47,7 +47,7 @@ public class ExamPan extends MouseAdapter
 		mainp.setLayout(null);
 		
 		makePane();
-		SetBgr("./pics/star.jpg");
+		SetBgr("./pics/img2.jpg");
 		SetCha("./pics/karen.png");
 
 		mainp.setVisible(true);
@@ -204,9 +204,9 @@ public class ExamPan extends MouseAdapter
 			e1.printStackTrace();
 		}
 		int ChaH = sci.getImg().getHeight(null);
-		System.out.println(ChaH);
+		//System.out.println(ChaH);
 		int ChaW = sci.getImg().getWidth(null);
-		System.out.println(ChaW);
+		//System.out.println(ChaW);
 
 		sci.setBounds((Stat.FrameWidth - ChaW) / 8, (Stat.FrameHeight - ChaH), ChaW, ChaH);
 		sci.setOpaque(false);

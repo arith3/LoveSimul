@@ -23,7 +23,7 @@ public class Ending {
 	private JLayeredPane lp;
 	private JTextArea ta;
 	private boolean end;
-	
+
 	public JPanel getMain() {
 		return mainPane;
 	}
@@ -34,10 +34,9 @@ public class Ending {
 		end = Success();
 		LayoutSet();
 	}
-	
-	private boolean Success()
-	{
-		if(Stat.getScore() >= 8.0)
+
+	private boolean Success() {
+		if (Stat.getScore() >= 8.0)
 			return true;
 		else
 			return false;
@@ -46,24 +45,11 @@ public class Ending {
 	private void LayoutSet() {
 		mainPane.setLayout(null);
 
-		SetBgr("./pics/abcd.jpg"); //이거 초기값을 컨스트럭터에서 받게 할까??
-		
-		if(end)
-		{
-			SetBgr("./pics/good.png");
-			
-		}
-		else
-		{
-			SetBgr("./pics/bad.png");
-			
-		}
-		
-		
+		SetBgr("./pics/img1.jpg"); // 이거 초기값을 컨스트럭터에서 받게 할까??
+
 		SetText();
 		MakeBtn();
-		
-		
+
 		lp.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
 		lp.add(textPan, JLayeredPane.MODAL_LAYER);
 
@@ -79,7 +65,7 @@ public class Ending {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		
+
 		sbi.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
 		lp.add(sbi, JLayeredPane.DEFAULT_LAYER);
 	}
@@ -92,10 +78,10 @@ public class Ending {
 		ta.setLineWrap(true);
 		ta.setWrapStyleWord(true);
 		ta.setFont(new Font("Comic Sans MS", Font.BOLD, 32));
-		ta.setText("3 months later...");
+		ta.setText("Coding after 3 months later...");
 		textPan.add(ta);
 		textPan.setOpaque(true);
-		textPan.setBounds((Stat.FrameWidth - 720) / 2, 500, 720, 180);
+		textPan.setBounds(640, 600, 600, 60);
 	}
 
 	private void MakeBtn() {
@@ -103,10 +89,27 @@ public class Ending {
 
 		nextBtn.setOpaque(true);
 		textPan.add(nextBtn, BorderLayout.EAST);
-		
-		nextBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
 
+		nextBtn.addActionListener(new ActionListener() {
+			int sysend = 0;
+
+			public void actionPerformed(ActionEvent e) {
+				if (sysend == 0) {
+					lp.remove(sbi);
+					if (end) {
+						SetBgr("./pics/good.png");
+						ta.setText("Now she is my girlfriend.");
+						nextBtn.setText("Happy");
+					} else {
+						SetBgr("./pics/bad.png");
+						textPan.setBounds(600, 600, 640, 60);
+						ta.setText("She is sick because of I am useless.");
+						nextBtn.setText("Sad");
+					}
+				}
+				if (sysend == 2)
+					System.exit(0);
+				sysend++;
 			}
 		});
 	}

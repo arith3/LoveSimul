@@ -40,7 +40,7 @@ public class Coding {
 	private void LayoutSet() {
 		mainPane.setLayout(null);
 
-		SetBgr("./pics/tbgr.png"); // 이거 초기값을 컨스트럭터에서 받게 할까??
+		SetBgr("./pics/img3.jpg"); // 이거 초기값을 컨스트럭터에서 받게 할까??
 		SetCha("./pics/smallkaren.png");
 
 		SetText();
@@ -48,6 +48,7 @@ public class Coding {
 		JLabel tt = new JLabel("Do your code!");
 		tt.setBounds(25, 30, 300, 100);
 		tt.setFont(new Font("Comic Sans MS", Font.BOLD, 36));
+		tt.setForeground(Color.WHITE);
 		lp.add(tt, JLayeredPane.PALETTE_LAYER);
 
 		lp.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
@@ -86,7 +87,7 @@ public class Coding {
 				if (check == 0)
 					nextBtn.setText("Are you sure? Click one more time.");
 				else if (check == 1) {
-					FileDialog fd = new FileDialog(SsibalMotherless.getFrame(), "Save your code", FileDialog.SAVE);
+					FileDialog fd = new FileDialog(LoveFrame.getFrame(), "Save your code", FileDialog.SAVE);
 
 					fd.setDirectory(".");
 					fd.setFile("MyJavaCode");
@@ -106,10 +107,13 @@ public class Coding {
 						arisu.close();
 
 					} catch (Exception ee) {
-						JOptionPane.showMessageDialog(SsibalMotherless.getFrame(), "Save ERROR");
+						JOptionPane.showMessageDialog(LoveFrame.getFrame(), "Save ERROR");
 					}
+					nextBtn.setText("See Ending!!");
 				} else {
-					//여기에 엔딩 보는 조건 달자
+					//nextBtn.setText("See Ending!!");
+					Ending ed = new Ending();
+					PanelChange.convert(ed.getMain());
 				}
 				check++;
 			}

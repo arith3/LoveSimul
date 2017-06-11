@@ -33,8 +33,9 @@ private static JFrame frame;
 		
 		Coding c = new Coding();
 		frame.add(c.getMain());
-
-		
+//		Ending e = new Ending();
+//		frame.add(e.getMain());
+//		
 
 		frame.setVisible(true);
 	}
