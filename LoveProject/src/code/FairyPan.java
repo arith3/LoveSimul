@@ -1,7 +1,6 @@
 package code;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -102,7 +101,6 @@ public class FairyPan {
 		textPan.add(sp);
 		textPan.setOpaque(true);
 		textPan.setBounds((Stat.FrameWidth - 720) / 2, 500, 720, 180);
-		textPan.setBackground(Color.BLACK);
 	}
 
 	private String dhint() {

@@ -6,7 +6,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -113,7 +112,6 @@ public class TalkPan {
 		textPan.add(sp);
 		textPan.setOpaque(true);
 		textPan.setBounds((Stat.FrameWidth - 720) / 2, 500, 720, 180);
-		textPan.setBackground(Color.BLACK);
 	}
 
 	private void MakeBtn() {
