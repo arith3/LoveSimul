@@ -103,7 +103,7 @@ public class Ending {
 					} else {
 						SetBgr("./pics/bad.png");
 						textPan.setBounds(600, 600, 640, 60);
-						ta.setText("She is sick because of I am useless.");
+						ta.setText("She is sick because I am useless.");
 						nextBtn.setText("Sad");
 					}
 				}
