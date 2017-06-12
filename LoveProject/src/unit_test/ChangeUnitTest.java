@@ -1,4 +1,4 @@
-package code;
+package unit_test;
 
 import javax.swing.JPanel;
 

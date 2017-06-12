@@ -1,11 +1,11 @@
-package code;
+package gui;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.*;
 
-public class LoveSimulation extends JPanel{
+public class IntroPan extends JPanel{
 	
 	//private Music bgm;
 	//private JFrame frame;
@@ -27,7 +27,7 @@ public class LoveSimulation extends JPanel{
 
     
     
-    public LoveSimulation()
+    public IntroPan()
 	{
 //    	frame = new JFrame("LoveSimulation");
 //    	
@@ -48,7 +48,7 @@ public class LoveSimulation extends JPanel{
                } 
         };
 		
-		p1.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
+		p1.setBounds(0, 0, Stat.getFramewidth(), Stat.getFrameheight());
         p1.setLayout(null);
         
         p1.add(quitButton);

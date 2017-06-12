@@ -1,4 +1,4 @@
-package code;
+package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -10,6 +10,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+
+import code.Exams;
+import code.SetBgrImg;
+import code.SetChaImg;
 
 /*
  * This class is exam that has constructor need integer.
@@ -43,7 +47,7 @@ public class ExamPan extends MouseAdapter
 	{
 		ex = new Exams(number);
 		mainp = new JPanel();
-		mainp.setSize(Stat.FrameWidth, Stat.FrameHeight);
+		mainp.setSize(Stat.getFramewidth(), Stat.getFrameheight());
 		mainp.setLayout(null);
 		
 		makePane();
@@ -185,7 +189,7 @@ public class ExamPan extends MouseAdapter
 		result.setBounds(73, 115, 324, 200);
 		lp.add(result, JLayeredPane.PALETTE_LAYER);
 		
-		lp.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
+		lp.setBounds(0, 0, Stat.getFramewidth(), Stat.getFrameheight());
 		lp.add(chop1, JLayeredPane.PALETTE_LAYER);
 		lp.add(chop2, JLayeredPane.PALETTE_LAYER);
 		lp.add(chop3, JLayeredPane.PALETTE_LAYER);
@@ -208,7 +212,7 @@ public class ExamPan extends MouseAdapter
 		int ChaW = sci.getImg().getWidth(null);
 		//System.out.println(ChaW);
 
-		sci.setBounds((Stat.FrameWidth - ChaW) / 8, (Stat.FrameHeight - ChaH), ChaW, ChaH);
+		sci.setBounds((Stat.getFramewidth() - ChaW) / 8, (Stat.getFrameheight() - ChaH), ChaW, ChaH);
 		sci.setOpaque(false);
 		lp.add(sci, JLayeredPane.PALETTE_LAYER);
 	}
@@ -221,7 +225,7 @@ public class ExamPan extends MouseAdapter
 			e1.printStackTrace();
 		}
 		
-		sbi.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
+		sbi.setBounds(0, 0, Stat.getFramewidth(), Stat.getFrameheight());
 		//sbi.repaint();
 		lp.add(sbi, JLayeredPane.DEFAULT_LAYER);
 

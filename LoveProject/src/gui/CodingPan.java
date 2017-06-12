@@ -1,4 +1,4 @@
-package code;
+package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -18,7 +18,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class Coding {
+import code.SetBgrImg;
+import code.SetChaImg;
+
+public class CodingPan {
 
 	private JPanel mainPane;
 	private JLayeredPane lp;
@@ -27,7 +30,7 @@ public class Coding {
 	private JTextArea ta;
 	private JPanel textPan;
 
-	protected Coding() {
+	protected CodingPan() {
 		mainPane = new JPanel();
 		lp = new JLayeredPane();
 		LayoutSet();
@@ -51,7 +54,7 @@ public class Coding {
 		tt.setForeground(Color.WHITE);
 		lp.add(tt, JLayeredPane.PALETTE_LAYER);
 
-		lp.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
+		lp.setBounds(0, 0, Stat.getFramewidth(), Stat.getFrameheight());
 		lp.add(textPan, JLayeredPane.MODAL_LAYER);
 
 		lp.setVisible(true);
@@ -70,7 +73,7 @@ public class Coding {
 		JScrollPane sp = new JScrollPane(ta);
 		textPan.add(sp);
 		textPan.setOpaque(true);
-		textPan.setBounds((Stat.FrameWidth - 720) / 2, 50, 950, 600);
+		textPan.setBounds((Stat.getFramewidth() - 720) / 2, 50, 950, 600);
 		textPan.setBackground(Color.BLACK);
 	}
 
@@ -112,7 +115,7 @@ public class Coding {
 					nextBtn.setText("See Ending!!");
 				} else {
 					//nextBtn.setText("See Ending!!");
-					Ending ed = new Ending();
+					EndingPan ed = new EndingPan();
 					PanelChange.convert(ed.getMain());
 				}
 				check++;
@@ -129,7 +132,7 @@ public class Coding {
 			e1.printStackTrace();
 		}
 
-		sbi.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
+		sbi.setBounds(0, 0, Stat.getFramewidth(), Stat.getFrameheight());
 		// sbi.repaint();
 		lp.add(sbi, JLayeredPane.DEFAULT_LAYER);
 		// System.out.println("배경이미지 설정: " + file + sbi.getWidth());

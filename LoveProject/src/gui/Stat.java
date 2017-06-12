@@ -1,8 +1,8 @@
-package code;
+package gui;
 
 public class Stat {
-	protected static final int FrameWidth = 1280;
-	protected static final int FrameHeight = 720;
+	private static final int FrameWidth = 1280;
+	private static final int FrameHeight = 720;
 
 	private static int pronum = 1;
 	private static double score = 10.0;
@@ -23,5 +23,13 @@ public class Stat {
 	protected static double getScore()
 	{
 		return score;
+	}
+
+	public static int getFramewidth() {
+		return FrameWidth;
+	}
+
+	public static int getFrameheight() {
+		return FrameHeight;
 	}
 }

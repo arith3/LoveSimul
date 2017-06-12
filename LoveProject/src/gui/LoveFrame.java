@@ -1,4 +1,4 @@
-package code;
+package gui;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -31,14 +31,14 @@ public class LoveFrame {
 		frame = new JFrame("¢¾ Love Simulator ¢¾");
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(Stat.FrameWidth, Stat.FrameHeight);
+		frame.setSize(Stat.getFramewidth(), Stat.getFrameheight());
 		frame.setResizable(false);
 		frame.setLocation(100, 100);
 		
 		
 //		TalkPan fl = new TalkPan();
 //		frame.add(fl.getMain());
-		new LoveSimulation();
+		new IntroPan();
 //		FairyPan fp = new FairyPan();
 //		frame.add(fp.getMain());
 		

@@ -1,8 +1,10 @@
-package code;
+package unit_test;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+
+import gui.Stat;
 
 public class MainUnitTest {
 
@@ -26,7 +28,7 @@ private static JFrame frame;
 		frame = new JFrame("¢¾ Love Simulator ¢¾");
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(Stat.FrameWidth, Stat.FrameHeight);
+		frame.setSize(Stat.getFramewidth(), Stat.getFrameheight());
 		frame.setResizable(false);
 		frame.setLocation(100, 100);
 		

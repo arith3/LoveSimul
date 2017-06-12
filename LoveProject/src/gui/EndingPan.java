@@ -1,8 +1,11 @@
-package code;
+package gui;
 
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+
+import code.SetBgrImg;
+
 import java.awt.BorderLayout;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -15,7 +18,7 @@ import java.awt.event.ActionEvent;
  * Coded by namori.
  */
 
-public class Ending {
+public class EndingPan {
 
 	private SetBgrImg sbi;
 	private JPanel mainPane;
@@ -28,7 +31,7 @@ public class Ending {
 		return mainPane;
 	}
 
-	public Ending() {
+	public EndingPan() {
 		mainPane = new JPanel();
 		lp = new JLayeredPane();
 		end = Success();
@@ -50,7 +53,7 @@ public class Ending {
 		SetText();
 		MakeBtn();
 
-		lp.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
+		lp.setBounds(0, 0, Stat.getFramewidth(), Stat.getFrameheight());
 		lp.add(textPan, JLayeredPane.MODAL_LAYER);
 
 		lp.setVisible(true);
@@ -66,7 +69,7 @@ public class Ending {
 			e1.printStackTrace();
 		}
 
-		sbi.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
+		sbi.setBounds(0, 0, Stat.getFramewidth(), Stat.getFrameheight());
 		lp.add(sbi, JLayeredPane.DEFAULT_LAYER);
 	}
 

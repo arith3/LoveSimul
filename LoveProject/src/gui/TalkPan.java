@@ -1,9 +1,15 @@
-package code;
+package gui;
 
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+
+import code.Person;
+import code.SetBgrImg;
+import code.SetChaImg;
+import code.hero;
+import code.heroine;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -50,7 +56,7 @@ public class TalkPan {
 
 		SetText();
 		MakeBtn();
-		lp.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
+		lp.setBounds(0, 0, Stat.getFramewidth(), Stat.getFrameheight());
 		lp.add(textPan, JLayeredPane.MODAL_LAYER);
 
 		lp.setVisible(true);
@@ -69,7 +75,7 @@ public class TalkPan {
 			e1.printStackTrace();
 		}
 
-		sbi.setBounds(0, 0, Stat.FrameWidth, Stat.FrameHeight);
+		sbi.setBounds(0, 0, Stat.getFramewidth(), Stat.getFrameheight());
 		// sbi.repaint();
 		lp.add(sbi, JLayeredPane.DEFAULT_LAYER);
 
@@ -92,7 +98,7 @@ public class TalkPan {
 		int ChaW = sci.getImg().getWidth(null);
 		//System.out.println(ChaW);
 
-		sci.setBounds((Stat.FrameWidth - ChaW) / 2, (Stat.FrameHeight - ChaH) / 3, ChaW, ChaH);
+		sci.setBounds((Stat.getFramewidth() - ChaW) / 2, (Stat.getFrameheight() - ChaH) / 3, ChaW, ChaH);
 		sci.setOpaque(false);
 		// sci.repaint();
 		lp.add(sci, JLayeredPane.PALETTE_LAYER);
@@ -111,7 +117,7 @@ public class TalkPan {
 		JScrollPane sp = new JScrollPane(ta);
 		textPan.add(sp);
 		textPan.setOpaque(true);
-		textPan.setBounds((Stat.FrameWidth - 720) / 2, 500, 720, 180);
+		textPan.setBounds((Stat.getFramewidth() - 720) / 2, 500, 720, 180);
 	}
 
 	private void MakeBtn() {
@@ -180,7 +186,7 @@ else {
 	asdf++;
 	if(asdf != 0)
 	{
-		Coding co = new Coding();
+		CodingPan co = new CodingPan();
 		PanelChange.convert(co.getMain());
 	}
 	

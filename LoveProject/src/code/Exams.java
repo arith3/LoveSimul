@@ -18,14 +18,14 @@ public class Exams {
 		ExamNum = num;
 	}
 
-	protected String getProblem() {
+	public String getProblem() {
 		String str = null;
 		int temp = (ExamNum-1);
 		str = pro.get(temp);
 		return str;
 	} // 문제를 빼오는 기능
 
-	protected ArrayList<String> getChoice() {
+	public ArrayList<String> getChoice() {
 		ArrayList<String> arr = new ArrayList<String>(4);
 		int start = 4 * (ExamNum-1);
 		int end = ExamNum * 4;
@@ -34,7 +34,7 @@ public class Exams {
 		return arr;
 	} // 선택지만 빼오는 기능
 
-	protected int getAnswer() {
+	public int getAnswer() {
 		int temp = 0;
 		temp = Integer.parseInt(ans.get((ExamNum - 1)));
 		return temp;
