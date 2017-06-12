@@ -30,9 +30,7 @@ private static JFrame frame;
 		frame.setResizable(false);
 		frame.setLocation(100, 100);
 		
-		
-		Coding c = new Coding();
-		frame.add(c.getMain());
+
 //		Ending e = new Ending();
 //		frame.add(e.getMain());
 //		
