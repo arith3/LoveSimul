@@ -96,8 +96,11 @@ public class CodingPan {
 					fd.setFile("MyJavaCode");
 					fd.setVisible(true);
 
-					if (fd.getFile() == null)
+					if (fd.getFile() == null) {
+						nextBtn.setText("See Ending!!");
+						check++;
 						return;
+					}
 
 					String where = fd.getDirectory() + fd.getFile() + ".txt";
 					// System.out.println(where);
