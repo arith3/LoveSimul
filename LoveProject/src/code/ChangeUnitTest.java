@@ -2,7 +2,7 @@ package code;
 
 import javax.swing.JPanel;
 
-public class SsibalChange {
+public class ChangeUnitTest {
 	
 	protected static void change(JPanel out)
 	{
@@ -11,9 +11,9 @@ public class SsibalChange {
 //		SsibalMotherless.frame.add(ex.getMain());
 //		SsibalMotherless.frame.repaint();
 
-		SsibalMotherless.getFrame().removeAll();
-		SsibalMotherless.getFrame().add(out);
-		SsibalMotherless.getFrame().repaint();
+		MainUnitTest.getFrame().removeAll();
+		MainUnitTest.getFrame().add(out);
+		MainUnitTest.getFrame().repaint();
 	}
 	
 

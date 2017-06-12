@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Hint {
 	public static ArrayList<String> hint = new ArrayList<String>();
-	public static int hintcnt=0;
+	public static int hintcnt = 0;
 	public void getDialogue(){
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("./texts/hint.txt"));
@@ -27,9 +27,6 @@ public class Hint {
 	}
 	public ArrayList<String> getHint() {
 		return hint;
-	}
-	public void setHint(ArrayList<String> hint) {
-		this.hint = hint;
 	}
 	
 }

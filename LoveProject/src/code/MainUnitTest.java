@@ -4,7 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-public class SsibalMotherless {
+public class MainUnitTest {
 
 private static JFrame frame;
 	
