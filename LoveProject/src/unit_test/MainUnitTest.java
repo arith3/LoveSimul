@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
+import gui.CodingPan;
 import gui.Stat;
 
 public class MainUnitTest {
@@ -32,9 +33,8 @@ private static JFrame frame;
 		frame.setResizable(false);
 		frame.setLocation(100, 100);
 		
-
-//		Ending e = new Ending();
-//		frame.add(e.getMain());
+		CodingPan co = new CodingPan();
+		frame.add(co.getMain());
 //		
 
 		frame.setVisible(true);

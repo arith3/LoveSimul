@@ -183,13 +183,13 @@ else {
 	System.out.println("EALJKSDHKJASDHLKAJSHLKJASHFLKJASF");
 	ta.setText("You studied very hard.\nHow about coding yourself?");
 	nextBtn.setText("Sure!!");
-	asdf++;
+	
 	if(asdf != 0)
 	{
 		CodingPan co = new CodingPan();
 		PanelChange.convert(co.getMain());
 	}
-	
+	asdf++;
 }
 				//System.out.println(tmp);
 

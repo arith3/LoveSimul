@@ -30,7 +30,7 @@ public class CodingPan {
 	private JTextArea ta;
 	private JPanel textPan;
 
-	protected CodingPan() {
+	public CodingPan() {
 		mainPane = new JPanel();
 		lp = new JLayeredPane();
 		LayoutSet();
@@ -102,7 +102,7 @@ public class CodingPan {
 						return;
 					}
 
-					String where = fd.getDirectory() + fd.getFile() + ".txt";
+					String where = fd.getDirectory() + fd.getFile() + ".java";
 					// System.out.println(where);
 
 					try {
