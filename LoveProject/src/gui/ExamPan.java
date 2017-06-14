@@ -85,7 +85,7 @@ public class ExamPan extends MouseAdapter
 			btnnum = 5;
 
 		if (btnnum == ex.getAnswer()) {
-			System.out.println("You're right!");
+			//System.out.println("You're right!");
 			result.setForeground(Color.GREEN);
 			result.setText("TRUE!!");
 
@@ -119,7 +119,7 @@ public class ExamPan extends MouseAdapter
 			PanelChange.convert(fp.getMain());
 			fairycalled = true;
 		} else {
-			System.out.println("You're wrong!");
+			//System.out.println("You're wrong!");
 			Stat.minusScore();
 			result.setForeground(Color.RED);
 			result.setText("FALSE!!");

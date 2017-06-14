@@ -180,7 +180,7 @@ if(tmp != null) {
 					ta.setText(tmp);
 }
 else {
-	System.out.println("EALJKSDHKJASDHLKAJSHLKJASHFLKJASF");
+	//System.out.println("EALJKSDHKJASDHLKAJSHLKJASHFLKJASF");
 	ta.setText("You studied very hard.\nHow about coding yourself?");
 	nextBtn.setText("Sure!!");
 	

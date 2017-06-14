@@ -110,6 +110,8 @@ public class EndingPan {
 						nextBtn.setText("Sad");
 					}
 				}
+				if (sysend == 1)
+					nextBtn.setText("END");
 				if (sysend == 2)
 					System.exit(0);
 				sysend++;

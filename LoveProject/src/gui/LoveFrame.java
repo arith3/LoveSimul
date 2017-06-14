@@ -35,18 +35,7 @@ public class LoveFrame {
 		frame.setResizable(false);
 		frame.setLocation(100, 100);
 		
-		
-//		TalkPan fl = new TalkPan();
-//		frame.add(fl.getMain());
 		new IntroPan();
-//		FairyPan fp = new FairyPan();
-//		frame.add(fp.getMain());
-		
-
-		//여기서 객체 만들면서 추가하면 될듯?
-		//내 생각엔 패널 하나 더 만들어서 이 클래스에선 그 패널 출력만 하고 거기서 바꾸자
-
-		
 
 		frame.setVisible(true);
 	}
