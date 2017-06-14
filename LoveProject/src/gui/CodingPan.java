@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import code.CMDcompile;
 import code.SetBgrImg;
 import code.SetChaImg;
 
@@ -124,6 +125,22 @@ public class CodingPan {
 				check++;
 			}
 		});
+		
+		JButton compile = new JButton("Compile");
+
+		compile.setOpaque(true);
+		compile.setBounds(110, 330, 100, 100);
+		lp.add(compile, JLayeredPane.MODAL_LAYER);
+		compile.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				CMDcompile cc = new CMDcompile();
+				cc.Play("C:\\","loop.java");
+				new CodeFrame();
+				System.out.println("sdgalk");
+				//cf.ariFrame();
+			}
+		});
 	}
 
 	private void SetBgr(String file) {
@@ -154,7 +171,7 @@ public class CodingPan {
 		int ChaW = sci.getImg().getWidth(null);
 		// System.out.println(ChaW);
 
-		sci.setBounds(60, 400, ChaW, ChaH);
+		sci.setBounds(60, 110, ChaW, ChaH);
 		sci.setOpaque(false);
 		// sci.repaint();
 		lp.add(sci, JLayeredPane.PALETTE_LAYER);
