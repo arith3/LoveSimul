@@ -1,11 +1,19 @@
 package gui;
 
+import java.util.ArrayList;
+
 public class Stat {
 	private static final int FrameWidth = 1280;
 	private static final int FrameHeight = 720;
 
 	private static int pronum = 1;
 	private static double score = 10.0;
+	
+	private static ArrayList<String> MSG = new ArrayList<String>();
+	
+	public static ArrayList<String> getMSG() {
+		return MSG;
+	}
 
 	public static int getPronum() {
 		return pronum;

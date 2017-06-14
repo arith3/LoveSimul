@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 public class PanelChange {
 
 	private static ArrayList<JPanel> array = new ArrayList<JPanel>();
-	private static int cnt = 0;;
+	private static int cnt = 0;
 	
 	protected static void convert(JPanel panel)
 	{

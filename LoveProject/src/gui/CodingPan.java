@@ -30,7 +30,10 @@ public class CodingPan {
 	private SetChaImg sci;
 	private JTextArea ta;
 	private JPanel textPan;
-
+	private String croute;
+	private String cfile;
+	private String defstr;
+	
 	public CodingPan() {
 		mainPane = new JPanel();
 		lp = new JLayeredPane();
@@ -69,8 +72,8 @@ public class CodingPan {
 		ta = new JTextArea();
 		ta.setLineWrap(true);
 		ta.setWrapStyleWord(true);
-		ta.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
-		ta.setText("Delete these sentence, ENTER your code here!\nWhen you end then click under button.");
+		ta.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+		ta.setText(SetStr());
 		JScrollPane sp = new JScrollPane(ta);
 		textPan.add(sp);
 		textPan.setOpaque(true);
@@ -80,45 +83,18 @@ public class CodingPan {
 
 	private void MakeBtn() {
 		JButton nextBtn = new JButton("Finished!!");
-
 		nextBtn.setOpaque(true);
 		textPan.add(nextBtn, BorderLayout.SOUTH);
 		nextBtn.addActionListener(new ActionListener() {
 			int check = 0;
-
 			public void actionPerformed(ActionEvent e) {
-
 				if (check == 0)
 					nextBtn.setText("Are you sure? Click one more time.");
-				else if (check == 1) {
-					FileDialog fd = new FileDialog(LoveFrame.getFrame(), "Save your code", FileDialog.SAVE);
-
-					fd.setDirectory(".");
-					fd.setFile("MyJavaCode");
-					fd.setVisible(true);
-
-					if (fd.getFile() == null) {
-						nextBtn.setText("See Ending!!");
-						check++;
-						return;
-					}
-
-					String where = fd.getDirectory() + fd.getFile() + ".java";
-					// System.out.println(where);
-
-					try {
-						BufferedWriter arisu = new BufferedWriter(new FileWriter(where, true));
-						// 버퍼라이터 객체를 통해 TextArea의 내용을 저장
-						arisu.write(ta.getText());
-						arisu.flush();
-						arisu.close();
-
-					} catch (Exception ee) {
-						JOptionPane.showMessageDialog(LoveFrame.getFrame(), "Save ERROR");
-					}
-					nextBtn.setText("See Ending!!");
-				} else {
-					//nextBtn.setText("See Ending!!");
+//				else if (check == 1) {
+//
+//					nextBtn.setText("See Ending!!");
+//				}
+				else {
 					EndingPan ed = new EndingPan();
 					PanelChange.convert(ed.getMain());
 				}
@@ -126,21 +102,64 @@ public class CodingPan {
 			}
 		});
 		
-		JButton compile = new JButton("Compile");
+		JButton compile = new JButton("Save!");
 
 		compile.setOpaque(true);
 		compile.setBounds(110, 330, 100, 100);
 		lp.add(compile, JLayeredPane.MODAL_LAYER);
 		compile.addActionListener(new ActionListener() {
-
+			boolean status = true;
 			public void actionPerformed(ActionEvent e) {
-				CMDcompile cc = new CMDcompile();
-				cc.Play("C:\\","loop.java");
-				new CodeFrame();
-				System.out.println("sdgalk");
-				//cf.ariFrame();
+
+				if (status) {
+					FileDialog fd = new FileDialog(LoveFrame.getFrame(), "Save your code!", FileDialog.SAVE);
+					fd.setDirectory(".");
+					fd.setFile("MyJavaCode.java");
+					fd.setVisible(true);
+
+					if (fd.getFile() != null) {
+						compile.setText("Compile!");
+						croute = fd.getDirectory();
+						cfile = fd.getFile();
+						status = false;
+						//return;
+					}
+//					croute = fd.getDirectory();
+//					cfile = fd.getFile();
+					String where = fd.getDirectory() + fd.getFile();
+
+					try {
+						BufferedWriter arisu = new BufferedWriter(new FileWriter(where));
+						// 버퍼라이터 객체를 통해 TextArea의 내용을 저장
+						arisu.write(ta.getText());
+						arisu.flush();
+						arisu.close();
+					} catch (Exception ee) {
+						JOptionPane.showMessageDialog(LoveFrame.getFrame(), "Save ERROR");
+					}
+					//status = false;
+				} else {
+					CMDcompile cc = new CMDcompile();
+					cc.Play(croute, cfile);
+					new CodeFrame();
+					compile.setText("Save!");
+					status = true;
+				}
 			}
 		});
+	}
+	
+	private String SetStr() {
+		
+		defstr = "public class MyJavaCode {\n"
+				+ "	public static void main(String[] args) {\n"
+				+ "	//Delete these sentence, ENTER your code here!\n"
+				+ "	//Click 'Save' button then you can save your code,\n"
+				+ "	//After click 'Compile' button to check error.\n"
+				+ "	}\n"
+				+ "}";
+		
+		return defstr;
 	}
 
 	private void SetBgr(String file) {
@@ -153,9 +172,7 @@ public class CodingPan {
 		}
 
 		sbi.setBounds(0, 0, Stat.getFramewidth(), Stat.getFrameheight());
-		// sbi.repaint();
 		lp.add(sbi, JLayeredPane.DEFAULT_LAYER);
-		// System.out.println("배경이미지 설정: " + file + sbi.getWidth());
 	}
 
 	private void SetCha(String file) {
@@ -167,13 +184,9 @@ public class CodingPan {
 			e1.printStackTrace();
 		}
 		int ChaH = sci.getImg().getHeight(null);
-		// System.out.println(ChaH);
 		int ChaW = sci.getImg().getWidth(null);
-		// System.out.println(ChaW);
-
 		sci.setBounds(60, 110, ChaW, ChaH);
 		sci.setOpaque(false);
-		// sci.repaint();
 		lp.add(sci, JLayeredPane.PALETTE_LAYER);
 	}
 }
