@@ -5,9 +5,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.*;
 
+import code.Music;
+
 public class IntroPan extends JPanel{
 	
-	//private Music bgm;
+	private Music bgm;
 	//private JFrame frame;
 	
 	//private Image background = new ImageIcon("introBackground.jpg").getImage();
@@ -90,8 +92,8 @@ public class IntroPan extends JPanel{
 			public void mouseEntered(MouseEvent e) {
 				startButton.setIcon(startButtonEnteredImage);
 				startButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-//				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
-//				buttonEnteredMusic.start();
+				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
+				buttonEnteredMusic.start();
 			}
 			
 			
@@ -104,8 +106,8 @@ public class IntroPan extends JPanel{
 			
 			@Override
 			public void mousePressed(MouseEvent e) {
-//				Music buttonEnteredMusic = new Music("buttonPressedMusic.mp3", false);
-//				buttonEnteredMusic.start();
+				Music buttonEnteredMusic = new Music("buttonPressedMusic.mp3", false);
+				buttonEnteredMusic.start();
 				
 				p1.setVisible(false);
 				LoveFrame.getFrame().add(fl.getMain());
@@ -127,8 +129,8 @@ public class IntroPan extends JPanel{
 			public void mouseEntered(MouseEvent e) {
 				quitButton.setIcon(quitButtonEnteredImage);//quitButton을 quitButtonEnteredImage로 change
 				quitButton.setCursor(new Cursor(Cursor.HAND_CURSOR));//cursor를 손 모양으로 바꿈
-//				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);//cursor가 위로 올라 갔을 때 음악 나옴
-//				buttonEnteredMusic.start();//cursor가 위로 올라 갔을 때 음악 나옴
+				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);//cursor가 위로 올라 갔을 때 음악 나옴
+				buttonEnteredMusic.start();//cursor가 위로 올라 갔을 때 음악 나옴
 			}
 			
 			
@@ -141,8 +143,8 @@ public class IntroPan extends JPanel{
 			
 			@Override
 			public void mousePressed(MouseEvent e) {
-//				Music buttonEnteredMusic = new Music("buttonPressedMusic.mp3", false);
-//				buttonEnteredMusic.start();
+				Music buttonEnteredMusic = new Music("buttonPressedMusic.mp3", false);
+				buttonEnteredMusic.start();
 				try {
 					Thread.sleep(1000); // exitButton을 눌렀을 때 1초 있다가 창이 종료됨.(이거 없으면 창이 바로 꺼져서 exitButton눌렀을 때 소리 안들림)
 				} catch (InterruptedException e1) {
@@ -159,8 +161,8 @@ public class IntroPan extends JPanel{
 		
 		///////////////////////////////////////
 		//start bgm 
-//		bgm = new Music("bgm.mp3",true);
-//		bgm.start();
+		bgm = new Music("bgm.mp3",true);
+		bgm.start();
 //        
 		
         
